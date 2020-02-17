@@ -107,12 +107,55 @@ public class Page_MyInfo extends Base {
 	private WebElement menubar_Assessments;
 	@FindBy(xpath = "//div[@id='psagraphcontainer']")
 	private WebElement graph_HealthIndicator;
+	@FindBy(xpath = "//div[contains(text(),'demeth camuin')]")
+	private WebElement label_ProfileName;
+	@FindBy(xpath = "//a[contains(text(),'Profile')]//span[@class='fa fa-fw fa-wrench']")
+	private WebElement link_ProfileName;
+	@FindBy(xpath = "//span[text()='Basic Information']")
+	private WebElement label_BasicInformation;
+	@FindBy(xpath = "//input[contains(@id,'Patient_MEDICARENUMBER')]")
+	private WebElement field_MedicareNumber;
+	@FindBy(xpath = "//input[@value='Save']")
+	private WebElement button_Save;
+	@FindBy(xpath = "//input[@value='Next']")
+	private WebElement button_Next;
+	@FindBy(xpath = "//span[text()='Medicare No. must be 10 digits']")
+	private WebElement error_MedicareNumber;
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	// ################################################## Return Page Objects ##################################################
+	public WebElement getMedicardNumberError() {
+		return error_MedicareNumber;
+	}
+	public WebElement getSaveButton() {
+		return button_Save;
+	}
+	public WebElement getNextButton() {
+		return button_Next;
+	}
+	public WebElement getMedicareNumberField() {
+		return field_MedicareNumber;
+	}
+	public WebElement getBasicInformationlabel() {
+		return label_BasicInformation;
+	}
+	public WebElement getProfileNamelink() {
+		return link_ProfileName;
+	}
+	public WebElement getProfileNamelabel() {
+		return label_ProfileName;
+	}
 	public WebElement getPSAGraphContainer() {
 		return graph_HealthIndicator;
 	}
-
-	// ################################################## Return Page Objects ##################################################
 	public WebElement getPSATabOnMyInfoPage() {
 		return getPSATabOnMyInfoPage;
 	}
