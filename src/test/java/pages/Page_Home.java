@@ -48,8 +48,15 @@ public class Page_Home extends Base {
 	// @FindBy(xpath = "//div[text()='Quality Care that's all about You']")
 	@FindBy(xpath = "//div[contains(text(),'Quality Care')]")
 	private WebElement header_HeroSubText;
+	@FindBy(xpath = "//div[contains(@id,'LanguageBar')]")
+	private WebElement container_LanguageBar;
+	
+	
 
 	// ############################################## Return Page Objects ###############################################
+	public WebElement getLanguageBarContainer() {
+		return container_LanguageBar;
+	}
 	public WebElement getLogInLinkOnFooter() {
 		return link_LogInOnFooter;
 	}

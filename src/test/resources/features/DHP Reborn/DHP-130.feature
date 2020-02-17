@@ -1,4 +1,4 @@
-@DHP130 @RegressionDD
+@DHP130 @Regression
 Feature: DHP-130: As a Clinician, I want to add a clinical note against a patient's profile, So that I can add patient commentary that is not attached to an appointment
 
   @DHP130A

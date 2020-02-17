@@ -215,4 +215,17 @@ public class Steps_Home extends Base {
 			throw new AssertionError("Hero page is not displayed" + "\n" + exception.getMessage());
 		}
 	}
+	
+	@Then("^user sees preferred language set in the application$")
+	public void user_sees_preferred_language_set_in_the_application() throws Throwable {
+		try {
+			waitUntilWebElementVisible(pages.getPageHome().getLanguageBarContainer());
+			Assert.assertTrue(isWebElementDisplayed(pages.getPageHome().getLanguageBarContainer()));
+		}
+		catch (AssertionError exception) {
+			throw new AssertionError("Language bar is missing" + "\n" + exception.getMessage());
+		}
+	}
+
+
 }

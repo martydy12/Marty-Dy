@@ -1,4 +1,4 @@
-@RegressionDD
+@Regression
 Feature: DHP-342: As a Configuration Manager, I want to set the default language for the application
 
   Scenario: 1a:  Default language indicator

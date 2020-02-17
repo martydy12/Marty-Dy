@@ -1,13 +1,9 @@
 @RegressionDD
-Feature: DHP-342: As a Configuration Manager, I want to set the default language for the application
+Feature: DHP-339: As a user i can see my preferred language set in the application.
 
   Scenario: 1a:  Default language indicator
-    Given the user is on configuration managers landing page
-    When user clicks on settings menubar
-    And enables multilingual setting
-    Then user sees default language label and dropdown
-    When disables multilingual setting
-    Then default language label and dropdown is hidden
+    Given user is on homepage
+    Then user sees preferred language set in the application
 
   @End
   Scenario: Close web browser
