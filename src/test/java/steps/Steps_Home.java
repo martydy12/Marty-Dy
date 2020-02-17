@@ -118,6 +118,59 @@ public class Steps_Home extends Base {
 		}
 
 	}
+	
+	@When("^user set language to Thai$")
+	public void user_set_language_to_Thai() throws Throwable {
+		try {
+			webElementClick(pages.getPageHome().getLanguageDropdown());
+			waitUntilWebElementVisible(pages.getPageHome().getLanguageThailandDropdown());
+			webElementClick(pages.getPageHome().getLanguageThailandDropdown());
+		}
+		catch (Exception exception) {
+			throw new Exception("Cannot set language to Thai." + "\n" + exception.getMessage());
+		}
+	}
+
+	@Then("^Thailand is set as preferred language on the language bar$")
+	public void Thailand_is_set_as_preferred_language_on_the_language_bar() throws Throwable {
+	
+		
+		
+		try {
+			Assert.assertTrue(isWebElementDisplayed(pages.getPageHome().getFlagThailand()));
+			Assert.assertTrue(isWebElementDisplayed(pages.getPageHome().getLanguageThailand()));
+		}
+		catch (AssertionError exception) {
+			throw new AssertionError("Thailand is not set as preferred language." + "\n" + exception.getMessage());
+		}
+
+	}
+	@When("^user set language to English$")
+	public void user_set_language_to_English() throws Throwable {
+		try {
+			webElementClick(pages.getPageHome().getLanguageDropdown());
+			waitUntilWebElementVisible(pages.getPageHome().getLanguageUSDropdown());
+			webElementClick(pages.getPageHome().getLanguageUSDropdown());
+		}
+		catch (Exception exception) {
+			throw new Exception("Cannot set language to English." + "\n" + exception.getMessage());
+		}
+	}
+
+	@Then("^English is set as preferred language on the language bar$")
+	public void English_is_set_as_preferred_language_on_the_language_bar() throws Throwable {
+	
+		
+		
+		try {
+			Assert.assertTrue(isWebElementDisplayed(pages.getPageHome().getFlagUS()));
+			Assert.assertTrue(isWebElementDisplayed(pages.getPageHome().getLanguageUS()));
+		}
+		catch (AssertionError exception) {
+			throw new AssertionError("English is not set as preferred language." + "\n" + exception.getMessage());
+		}
+
+	}
 
 	// ################################################## Then Steps ###################################################
 

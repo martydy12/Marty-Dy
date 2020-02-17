@@ -50,10 +50,49 @@ public class Page_Home extends Base {
 	private WebElement header_HeroSubText;
 	@FindBy(xpath = "//div[contains(@id,'LanguageBar')]")
 	private WebElement container_LanguageBar;
+	@FindBy(xpath = "//img[contains(@src,'TH.png')]")
+	private WebElement flag_Thailand;
+	@FindBy(xpath = "//img[contains(@src,'US.png')]")
+	private WebElement flag_US;
+	@FindBy(xpath = "//div[text()='Thai']")
+	private WebElement language_Thailand;
+	@FindBy(xpath = "//div[text()='English']")
+	private WebElement language_US;
+	@FindBy(xpath = "//div[@class='dropdown-icon']")
+	private WebElement dropdown_language;
+	@FindBy(xpath = "//a[text()='Thai']")
+	private WebElement dropdown_Thailand;
+	@FindBy(xpath = "//a[text()='English']")
+	private WebElement dropdown_US;
+	
+	
 	
 	
 
 	// ############################################## Return Page Objects ###############################################
+	public WebElement getLanguageThailandDropdown() {
+		return dropdown_Thailand;
+	}
+	public WebElement getLanguageUSDropdown() {
+		return dropdown_US;
+	}
+	public WebElement getLanguageDropdown() {
+		return dropdown_language;
+	}
+	public WebElement getLanguageThailand() {
+		return language_Thailand;
+	}
+	public WebElement getLanguageUS() {
+		return language_US;
+	}
+	
+	
+	public WebElement getFlagThailand() {
+		return flag_Thailand;
+	}
+	public WebElement getFlagUS() {
+		return flag_US;
+	}
 	public WebElement getLanguageBarContainer() {
 		return container_LanguageBar;
 	}
