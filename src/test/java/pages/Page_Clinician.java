@@ -105,6 +105,30 @@ public class Page_Clinician extends Base {
 	private WebElement label_AnswersOfAnxietyQuestionnaire;
 	@FindBy(xpath = "//span[text()='Physical Activity']")
 	private WebElement label_AnswersOfPhysicalActivityQuestionnaire;
+	
+	@FindBy(xpath = "(//input[@value='Enter a PSA level'])[2]")
+	private WebElement button_EnterPSALevel;
+	@FindBy(xpath = "//input[contains(@id,'HealtIndicator_LIFEEVENTVALUE')]")
+	private WebElement field_PSAResult;
+	@FindBy(xpath = "//textarea[contains(@id,'LifeEvent_COMMENT')]")
+	private WebElement field_PSAResultComment;
+	@FindBy(xpath = "//input[@value='Save ']")
+	private WebElement button_Save;
+	
+	public WebElement getPSAResultComment() {
+		return field_PSAResultComment;
+	}
+	public WebElement getPSAResultSave() {
+		return button_Save;
+	}
+	public WebElement getPSAResult() {
+		return field_PSAResult;
+	}
+	
+	
+	public WebElement getEnterPSALevelButton() {
+		return button_EnterPSALevel;
+	}
 	// ############################################## Return Page Objects ###############################################
 	public WebElement getAnswersOfPhysicalActivityQuestionnaire() {
 		return label_AnswersOfPhysicalActivityQuestionnaire;

@@ -7,7 +7,7 @@ import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(glue = { "steps" }, monochrome = true, strict = true, dryRun = false, // Change dryRun to true to check for unimplemented steps.
+@CucumberOptions(glue = { "steps" }, monochrome = true, strict = true, dryRun = true, // Change dryRun to true to check for unimplemented steps.
 	plugin = { "com.cucumber.listener.ExtentCucumberFormatter:reports\\Extent-Report.html" },
 	// Specify which folder or file to check.
 	features = "src\\test\\resources\\features\\",

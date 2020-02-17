@@ -105,6 +105,12 @@ public class Page_MyInfo extends Base {
 	private WebElement label_DoctorPatientTab;
 	@FindBy(xpath = "//div[text()='Assessments']")
 	private WebElement menubar_Assessments;
+	@FindBy(xpath = "//div[@id='psagraphcontainer']")
+	private WebElement graph_HealthIndicator;
+	
+	public WebElement getPSAGraphContainer() {
+		return graph_HealthIndicator;
+	}
 
 	// ################################################## Return Page Objects ##################################################
 	public WebElement getPSATabOnMyInfoPage() {

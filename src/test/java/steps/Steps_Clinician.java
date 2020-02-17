@@ -254,4 +254,38 @@ public class Steps_Clinician extends Base {
 		}
 
 	}
+
+	@When("^clicks on PSA tab$")
+	public void clicks_on_PSA_tab() throws Throwable {
+		try {
+			waitUntilWebElementVisible(pages.getPageClinician().getPatientNameLabel());
+			webElementClick(pages.getPageClinician().getPSATab());
+		} catch (Exception exception) {
+			throw new Exception("Unable to locate PSA tab." + "\n" + exception.getMessage());
+		}
+	}
+	
+	@When("^clicks on Enter a PSA level button$")
+	public void clicks_on_Enter_a_PSA_level_button() throws Throwable {
+		try {
+			waitUntilWebElementVisible(pages.getPageClinician().getEnterPSALevelButton());
+			webElementClick(pages.getPageClinician().getEnterPSALevelButton());
+		} catch (Exception exception) {
+			throw new Exception("Unable to click Enter a PSA level." + "\n" + exception.getMessage());
+		}
+	}
+	
+	@When("^type in the value in Health Indicator result then save$")
+	public void type_in_the_value_in_Health_Indicator_result_then_save() throws Throwable {
+		try {
+			webElementSendKeys(pages.getPageClinician().getPSAResult(), "123");
+			webElementSendKeys(pages.getPageClinician().getPSAResultComment(), "No Comment");
+			webElementClick(pages.getPageClinician().getPSAResultSave());
+			waitUntilWebElementVisible(pages.getPageClinician().getEnterPSALevelButton());
+			
+		} catch (Exception exception) {
+			throw new Exception("Unable to input PSA level results." + "\n" + exception.getMessage());
+		}
+	}
+
 }

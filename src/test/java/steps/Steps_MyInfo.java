@@ -493,4 +493,34 @@ public class Steps_MyInfo extends Base {
 		}
 	}
 
+	@Given("^the user is on PSA tab on my info page$")
+	public void the_user_is_on_PSA_tab_on_my_info_page() throws Throwable {
+		try {
+			Base.initialization();
+			launchURL(properties.getProperty("url"));
+			Assert.assertTrue(getCurrentUrl().contains(properties.getProperty("url")));
+			webElementClick(pages.getPageHome().getLogInButton());
+			Thread.sleep(5000);
+			webElementSendKeys(pages.getPageLogin().getInputEmailAddress(), properties.getProperty("PatientEmail"));
+			webElementSendKeys(pages.getPageLogin().getInputUserPassword(), properties.getProperty("PatientPassword"));
+			webElementClick(pages.getPageLogin().getButtonLogin());
+			webElementClick(pages.getPageMyInfo().getPSATabOnMyInfoPage());
+			waitUntilWebElementVisible(pages.getPageMyInfo().getPSAGraphContainer());
+			
+		} catch (AssertionError exception) {
+			throw new AssertionError("Unable to proceed on PSA tab." + "\n" + exception.getMessage());
+		}
+
+	}
+	
+	@Then("^they see the Health Indicator graph$")
+	public void they_see_the_Health_Indicator_graph() throws Throwable {
+		try {
+			assertTrue(isWebElementDisplayed(pages.getPageMyInfo().getPSAGraphContainer()));
+		} catch (AssertionError exception) {
+			throw new AssertionError("Cannot see health indicator graph." + "\n" + exception.getMessage());
+		}
+	}
+
+
 }
