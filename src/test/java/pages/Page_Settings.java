@@ -174,6 +174,35 @@ public class Page_Settings extends Base {
 	private WebElement toggle_PhysicalActivityON;
 	@FindBy(xpath = "(//div[contains(@id,'ToggleButtonWrapper')])[8]")
 	private WebElement toggle_PhysicalActivity;
+	@FindBy(xpath = "//input[contains(@id,'OrgMultilingualCheckbox')]")
+	private WebElement checkbox_Multilingual;
+	@FindBy(xpath = "//input[contains(@id,'Multilingual') and @class='checkbox SmartInput SmartInput_Changed ReadOnly']")
+	private WebElement checkbox_MultilingualUnChecked;
+	@FindBy(xpath = "//input[contains(@id,'Multilingual') and @class='checkbox SmartInput ReadOnly']")
+	private WebElement checkbox_MultilingualChecked;
+	@FindBy(xpath = "//div[text()='Language']")
+	private WebElement label_DefaultLanguage;
+	@FindBy(xpath = "(//div[@class='dropdown-header select'])[3]")
+	private WebElement dropdown_DefaultLanguage;
+
+	public WebElement getDefaultLanguageDropdown() {
+		return dropdown_DefaultLanguage;
+	}
+
+	public WebElement getDefaultLanguageLabel() {
+		return label_DefaultLanguage;
+	}
+
+	public WebElement getMultilingualCheckbox() {
+		return checkbox_Multilingual;
+	}
+
+	public WebElement getMultilingualOFFCheckbox() {
+		return checkbox_MultilingualUnChecked;
+	}
+	public WebElement getMultilingualONCheckbox() {
+		return checkbox_MultilingualChecked;
+	}
 
 	// ############################################## Return Page Objects ###############################################
 	public WebElement getTimelineLabel() {
