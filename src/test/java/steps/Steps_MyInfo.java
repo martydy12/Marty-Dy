@@ -289,6 +289,19 @@ public class Steps_MyInfo extends Base {
 
 	// ################################################## Then Steps
 	// ###################################################
+	@Then("^no progress bar is displayed$")
+	public void no_progress_bar_is_displayed() throws Throwable {
+		try {
+			assertEquals("Health Assessment", getPageTitle());
+			assertTrue(!isWebElementDisplayed(pages.getPageMyInfo().getFirstPageNeeds()));
+			assertTrue(!isWebElementDisplayed(pages.getPageMyInfo().getSecondPageDepression()));
+			assertTrue(!isWebElementDisplayed(pages.getPageMyInfo().getThirdPageAnxiety()));
+			assertTrue(!isWebElementDisplayed(pages.getPageMyInfo().getFourthPagePhysicalActivity()));
+		} catch (AssertionError exception) {
+			throw new AssertionError("Unable to locate anxiety progress bar." + "\n" + exception.getMessage());
+		}
+	}
+	
 	@Then("^they are taken to the Assessment questionnaire page with the anxiety progress bar$")
 	public void they_are_taken_to_the_Assessment_questionnaire_page_with_the_anxiety_progress_bar() throws Throwable {
 		try {
