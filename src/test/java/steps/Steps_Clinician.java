@@ -31,6 +31,35 @@ public class Steps_Clinician extends Base {
 					"Clinician Cannot proceed to patient's profile page." + "\n" + exception.getMessage());
 		}
 	}
+	
+	@Given("^the Clinician is viewing a patient's notes$")
+	public void the_Clinician_is_viewing_a_patient_s_notes() throws Throwable {
+		try {
+			Base.initialization();
+			launchURL(properties.getProperty("url"));
+			webElementClick(pages.getPageHome().getLogInButton());
+			Thread.sleep(5000);
+			webElementSendKeys(pages.getPageLogin().getInputEmailAddress(), properties.getProperty("DoctorEmail"));
+			webElementSendKeys(pages.getPageLogin().getInputUserPassword(), properties.getProperty("DoctorPassword"));
+			webElementClick(pages.getPageLogin().getButtonLogin());
+			webElementClick(pages.getPageClinician().getPatientsMenubar());
+			waitUntilWebElementVisible(pages.getPageClinician().getPatientSearchField());
+			webElementClick(pages.getPageClinician().getPatientSearchField());
+			waitUntilWebElementVisible(pages.getPageClinician().getPatientSearchField());
+			webElementSendKeys(pages.getPageClinician().getPatientSearchField(), properties.getProperty("PatientFirstName"));
+			webElementClick(pages.getPageClinician().getSearchButton());
+			Thread.sleep(5000);
+			waitUntilWebElementVisible(pages.getPageClinician().getDemethPatientLink());
+			webElementClick(pages.getPageClinician().getDemethPatientLink());
+			waitUntilWebElementVisible(pages.getPageClinician().getPatientNameLabel());
+			webElementClick(pages.getPageClinician().getNotesTab());
+
+		} catch (AssertionError exception) {
+			throw new AssertionError(
+					"Clinician Cannot proceed to notes page of the patient's profile." + "\n" + exception.getMessage());
+		}
+	}
+
 	@Given("^the clinicians manager is on clinicians page$")
 	public void the_clinicians_manager_is_on_clinicians_page() throws Throwable {
 		try {
@@ -50,6 +79,50 @@ public class Steps_Clinician extends Base {
 	}
 	
 	// ################################################## When Steps ###################################################
+	@Given("^they have entered an invalid keyword in the 'Search' field$")
+	public void they_have_entered_an_invalid_keyword_in_the_Search_field() throws Throwable {
+		try {
+			waitUntilWebElementVisible(pages.getPageClinician().getAddNewNoteButton());
+			
+			webElementClear(pages.getPageClinician().getInputSearchField());
+			webElementSendKeys(pages.getPageClinician().getInputSearchField(), "Wala"); //Empty record
+		} catch (Exception exception) {
+			throw new AssertionError("Unable to input keyword on search field." + "\n" + exception.getMessage());
+		}
+
+	}
+	@Given("^they have entered an valid keyword in the 'Search' field$")
+	public void they_have_entered_an_valid_keyword_in_the_Search_field() throws Throwable {
+		try {
+			waitUntilWebElementVisible(pages.getPageClinician().getAddNewNoteButton());
+			webElementClear(pages.getPageClinician().getInputSearchField());
+			webElementSendKeys(pages.getPageClinician().getInputSearchField(), "no");
+		} catch (Exception exception) {
+			throw new AssertionError("Unable to input keyword on search field." + "\n" + exception.getMessage());
+		}
+
+	}
+	
+	@When("^they click on the 'Search' button$")
+	public void they_click_on_the_Search_button() throws Throwable {
+		try {
+			waitUntilWebElementVisible(pages.getPageClinician().getAddNewNoteButton());
+			webElementClick(pages.getPageClinician().getSearchButton());
+		} catch (Exception exception) {
+			throw new AssertionError("Unable to click search button." + "\n" + exception.getMessage());
+		}
+	}
+	@When("^they click on the 'Reset' button$")
+	public void they_click_on_the_Reset_button() throws Throwable {
+		try {
+			waitUntilWebElementVisible(pages.getPageClinician().getAddNewNoteButton());
+			webElementClick(pages.getPageClinician().getResetButton());
+		} catch (Exception exception) {
+			throw new AssertionError("Unable to click reset button." + "\n" + exception.getMessage());
+		}
+	}
+
+	
 	@When("^user is in the clinicians page$")
 	public void user_is_in_the_clinicians_page() throws Throwable {
 		try {
@@ -127,15 +200,79 @@ public class Steps_Clinician extends Base {
 	}
 
 	// ################################################## Then Steps ##################################################
+	@Then("^the following message is displayed: No records found\\.$")
+	public void the_following_message_is_displayed_No_records_found() throws Throwable {
+		try {
+			waitUntilWebElementVisible(pages.getPageClinician().getNoItemsShowMessage());
+			assertTrue(isWebElementDisplayed(pages.getPageClinician().getNoRecordFoundMessage()));
+			
+		} catch (AssertionError exception) {
+			throw new AssertionError("A record is found" + "\n" + exception.getMessage());
+		}
+	}
+	@When("^the following message is displayed: Total of Total no\\. of notes displayed of  Total no\\. of notes returned$")
+	public void the_following_message_is_displayed_Total_of_Total_no_of_notes_displayed_of_Total_no_of_notes_returned() throws Throwable {
+		try {
+			waitUntilWebElementVisible(pages.getPageClinician().getRecordFoundMessage());
+			assertTrue(isWebElementDisplayed(pages.getPageClinician().getRecordFoundMessage()));
+			
+		} catch (AssertionError exception) {
+			throw new AssertionError("No record/s found" + "\n" + exception.getMessage());
+		}
+	}
+
+	@Then("^the tab is empty$")
+	public void the_tab_is_empty() throws Throwable {
+		try {
+			waitUntilWebElementVisible(pages.getPageClinician().getNoItemsShowMessage());
+			assertTrue(isWebElementDisplayed(pages.getPageClinician().getNoItemsShowMessage()));
+			
+		} catch (AssertionError exception) {
+			throw new AssertionError("Tab is not empty." + "\n" + exception.getMessage());
+		}
+	}
+	@Then("^they see a Search field defaulted with 'Search Notes'$")
+	public void they_see_a_Search_field_defaulted_with_Search_Notes() throws Throwable {
+		try {
+			waitUntilWebElementVisible(pages.getPageClinician().getInputSearchFieldWithPlaceholder());
+			assertTrue(isWebElementDisplayed(pages.getPageClinician().getInputSearchFieldWithPlaceholder()));
+			
+		} catch (AssertionError exception) {
+			throw new AssertionError("Cannot find search field." + "\n" + exception.getMessage());
+		}
+	}
+	@Then("^they see a 'Reset' button$")
+	public void they_see_a_Reset_button() throws Throwable {
+		try {
+			waitUntilWebElementVisible(pages.getPageClinician().getAddNewNoteButton());
+			assertTrue(isWebElementDisplayed(pages.getPageClinician().getResetButton()));
+			
+		} catch (AssertionError exception) {
+			throw new AssertionError("Cannot find reset button." + "\n" + exception.getMessage());
+		}
+	}
+	
+	@Then("^they see a 'Search' button$")
+	public void they_see_a_Search_button() throws Throwable {
+		try {
+			waitUntilWebElementVisible(pages.getPageClinician().getAddNewNoteButton());
+			assertTrue(isWebElementDisplayed(pages.getPageClinician().getSearchButton()));
+			
+		} catch (AssertionError exception) {
+			throw new AssertionError("Cannot find search button." + "\n" + exception.getMessage());
+		}
+	}
+
+	
 	@Then("^they see a Type column between the Clinician and Note Details columns$")
 	public void they_see_a_Type_column_between_the_Clinician_and_Note_Details_columns() throws Throwable {
 		try {
-			waitUntilWebElementVisible(pages.getPageClinician().getPatientNameLabel());
+			waitUntilWebElementVisible(pages.getPageClinician().getAddNewNoteButton());
 			assertTrue(isWebElementDisplayed(pages.getPageClinician().getTypeColumn()));
 			assertTrue(isWebElementDisplayed(pages.getPageClinician().getNoteDetailsColumn()));
 			
 		} catch (AssertionError exception) {
-			throw new AssertionError("One column is missing its either type or notes detail column." + "\n" + exception.getMessage());
+			throw new AssertionError("One column is missing, its either type or notes detail column." + "\n" + exception.getMessage());
 		}
 	}
 

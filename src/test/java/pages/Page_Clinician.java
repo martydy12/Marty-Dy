@@ -82,6 +82,9 @@ public class Page_Clinician extends Base {
 
 	@FindBy(xpath = "//div[contains(@id,'ctn__Search')]//input[contains(@id,'inputSearch')]")
 	private WebElement input_SearchField;
+	@FindBy(xpath = "//input[contains(@id,'inputSearch') and @placeholder = 'Search Notes']")
+	private WebElement input_SearchFieldWithPlaceholder;
+	
 	@FindBy(xpath = "//input[@value='Create Clinician']")
 	private WebElement button_CreateClinician;
 	@FindBy(xpath = "//div[contains(@id,'Title')]//span[text()='Clinicians']")
@@ -119,7 +122,28 @@ public class Page_Clinician extends Base {
 	private WebElement label_TypeColumn;
 	@FindBy(xpath = "//span[text()='Note Details']")
 	private WebElement label_NoteDetailsColumn;
-
+	@FindBy(xpath = "//input[contains(@id,'AddNoteBtn')]")
+	private WebElement button_AddNewNote;
+	@FindBy(xpath = "//td[text()='No items to show...']")
+	private WebElement label_NoItemShow;
+	@FindBy(xpath = "//div[contains(text(),'0') and contains(text(),'records')  and @class='Counter_Message']")
+	private WebElement label_NoRecordsFound;
+	@FindBy(xpath = "//div[contains(text(),'to') and contains(text(),'of') and contains(text(),'records') and @class='Counter_Message']")
+	private WebElement label_RecordsFound;
+	
+	public WebElement getNoRecordFoundMessage() {
+		return label_NoRecordsFound;
+	}
+	public WebElement getRecordFoundMessage() {
+		return label_RecordsFound;
+	}
+	public WebElement getNoItemsShowMessage() {
+		return label_NoItemShow;
+	}
+	
+	public WebElement getAddNewNoteButton() {
+		return button_AddNewNote;
+	}
 	public WebElement getTypeColumn() {
 		return label_TypeColumn;
 	}
@@ -253,7 +277,9 @@ public class Page_Clinician extends Base {
 	public WebElement getInputSearchField() {
 		return input_SearchField;
 	}
-
+	public WebElement getInputSearchFieldWithPlaceholder() {
+		return input_SearchFieldWithPlaceholder;
+	}
 	public WebElement getCreateClinicianButton() {
 		return button_CreateClinician;
 	}
