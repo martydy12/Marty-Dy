@@ -10,7 +10,8 @@ public class Page_Clinician extends Base {
 		PageFactory.initElements(webDriver, this);
 	}
 
-	// ################################################## Page Objects ##################################################
+	// ################################################## Page Objects
+	// ##################################################
 	@FindBy(xpath = "//span[text()='Clinician managers']")
 	private WebElement header_ClinicianManagers;
 
@@ -105,7 +106,7 @@ public class Page_Clinician extends Base {
 	private WebElement label_AnswersOfAnxietyQuestionnaire;
 	@FindBy(xpath = "//span[text()='Physical Activity']")
 	private WebElement label_AnswersOfPhysicalActivityQuestionnaire;
-	
+
 	@FindBy(xpath = "(//input[@value='Enter a PSA level'])[2]")
 	private WebElement button_EnterPSALevel;
 	@FindBy(xpath = "//input[contains(@id,'HealtIndicator_LIFEEVENTVALUE')]")
@@ -114,43 +115,65 @@ public class Page_Clinician extends Base {
 	private WebElement field_PSAResultComment;
 	@FindBy(xpath = "//input[@value='Save ']")
 	private WebElement button_Save;
-	
+	@FindBy(xpath = "//span[text()='Type']")
+	private WebElement label_TypeColumn;
+	@FindBy(xpath = "//span[text()='Note Details']")
+	private WebElement label_NoteDetailsColumn;
+
+	public WebElement getTypeColumn() {
+		return label_TypeColumn;
+	}
+
+	public WebElement getNoteDetailsColumn() {
+		return label_NoteDetailsColumn;
+	}
+
 	public WebElement getPSAResultComment() {
 		return field_PSAResultComment;
 	}
+
 	public WebElement getPSAResultSave() {
 		return button_Save;
 	}
+
 	public WebElement getPSAResult() {
 		return field_PSAResult;
 	}
-	
-	
+
 	public WebElement getEnterPSALevelButton() {
 		return button_EnterPSALevel;
 	}
-	// ############################################## Return Page Objects ###############################################
+
+	// ############################################## Return Page Objects
+	// ###############################################
 	public WebElement getAnswersOfPhysicalActivityQuestionnaire() {
 		return label_AnswersOfPhysicalActivityQuestionnaire;
 	}
+
 	public WebElement getAnswersOfAnxietyQuestionnaire() {
 		return label_AnswersOfAnxietyQuestionnaire;
 	}
+
 	public WebElement getAnswersOfDepressionQuestionnaire() {
 		return label_AnswersOfDepressionQuestionnaire;
 	}
+
 	public WebElement getAnswersOfNeedsQuestionnaire() {
 		return label_AnswersOfNeedsQuestionnaire;
 	}
+
 	public WebElement getAnxietyGraphRadioBtn() {
 		return radioBtn_AnxietyGraph;
 	}
+
 	public WebElement getDistressGraphRadioBtn() {
 		return radioBtn_DistressGraph;
 	}
+
 	public WebElement getDepressionGraphRadioBtn() {
 		return radioBtn_DepressionGraph;
 	}
+
 	public WebElement getClinicianManagers() {
 		return header_ClinicianManagers;
 	}
@@ -230,19 +253,23 @@ public class Page_Clinician extends Base {
 	public WebElement getInputSearchField() {
 		return input_SearchField;
 	}
+
 	public WebElement getCreateClinicianButton() {
 		return button_CreateClinician;
 	}
-	
+
 	public WebElement getClinicianHeader() {
 		return label_ClinicianHeader;
 	}
+
 	public WebElement getClinicianMenuLink() {
 		return menu_ClinicianLink;
 	}
+
 	public WebElement getClinicianResourcesLink() {
 		return menu_ResourcesLink;
 	}
+
 	public WebElement getClinicianLogoutLink() {
 		return menu_LogoutLink;
 	}

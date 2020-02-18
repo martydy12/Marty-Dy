@@ -90,6 +90,16 @@ public class Steps_Clinician extends Base {
 			throw new Exception("Unable to locate Appointments tab." + "\n" + exception.getMessage());
 		}
 	}
+	@When("^clicks on notes tab$")
+	public void clicks_on_notes_tab() throws Throwable {
+		try {
+			waitUntilWebElementVisible(pages.getPageClinician().getPatientNameLabel());
+			webElementClick(pages.getPageClinician().getNotesTab());
+		} catch (Exception exception) {
+			throw new Exception("Unable to locate notes tab." + "\n" + exception.getMessage());
+		}
+	}
+
 
 	@When("^user inputs an empty clinician to the search field$")
 	public void user_inputs_an_empty_clinician_to_the_search_field() throws Throwable {
@@ -117,6 +127,18 @@ public class Steps_Clinician extends Base {
 	}
 
 	// ################################################## Then Steps ##################################################
+	@Then("^they see a Type column between the Clinician and Note Details columns$")
+	public void they_see_a_Type_column_between_the_Clinician_and_Note_Details_columns() throws Throwable {
+		try {
+			waitUntilWebElementVisible(pages.getPageClinician().getPatientNameLabel());
+			assertTrue(isWebElementDisplayed(pages.getPageClinician().getTypeColumn()));
+			assertTrue(isWebElementDisplayed(pages.getPageClinician().getNoteDetailsColumn()));
+			
+		} catch (AssertionError exception) {
+			throw new AssertionError("One column is missing its either type or notes detail column." + "\n" + exception.getMessage());
+		}
+	}
+
 	@Then("^inside the Assessment Results box, they see assessment results of the most recent assessment completed by that patient$")
 	public void inside_the_Assessment_Results_box_they_see_assessment_results_of_the_most_recent_assessment_completed_by_that_patient()
 			throws Throwable {

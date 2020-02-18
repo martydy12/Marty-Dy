@@ -1,4 +1,4 @@
-@RegressionDD
+@Regression
 Feature: DHP-273: As a Patient, I want my Medicare No. validated so accurate information is stored in my profile
 
   Scenario: 1:  Medicare no. is not 10  characters
