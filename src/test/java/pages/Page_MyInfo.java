@@ -10,7 +10,8 @@ public class Page_MyInfo extends Base {
 		PageFactory.initElements(webDriver, this);
 	}
 
-	// ################################################## Page Objects ##################################################
+	// ################################################## Page Objects
+	// ##################################################
 	@FindBy(xpath = "(//select[contains(@id,'LIFEEVENTTYPEID')])[1]")
 	private WebElement dropdown_InfoType;
 	@FindBy(xpath = "(//label[text()='Info Type'])[1]")
@@ -121,44 +122,103 @@ public class Page_MyInfo extends Base {
 	private WebElement button_Next;
 	@FindBy(xpath = "//span[text()='Medicare No. must be 10 digits']")
 	private WebElement error_MedicareNumber;
+
+	//Start: DHP - 57
+	@FindBy(xpath = "(//select[contains(@id,'LifeEvent_LIFEEVENTTYPEID')])[1]//option[text()='Treatment']")
+	private WebElement option_Treatment;
+	@FindBy(xpath = "//select[contains(@id,'LifeEvent_LIFEEVENTSUBTYPEID')]")
+	private WebElement dropdown_TreatmentType;
+	@FindBy(xpath = "//select[contains(@id,'LifeEvent_LIFEEVENTSUBTYPEID')]//option[text()='Active Surveillance']")
+	private WebElement option_TreatmentType1;
+	@FindBy(xpath = "//select[contains(@id,'LifeEvent_LIFEEVENTSUBTYPEID')]//option[text()='Brachytherapy']")
+	private WebElement option_TreatmentType2;
+	@FindBy(xpath = "//select[contains(@id,'LifeEvent_LIFEEVENTSUBTYPEID')]//option[text()='Chemotherapy']")
+	private WebElement option_TreatmentType3;
+	@FindBy(xpath = "//select[contains(@id,'LifeEvent_LIFEEVENTSUBTYPEID')]//option[text()='Hormone Theraphy']")
+	private WebElement option_TreatmentType4;
+	@FindBy(xpath = "//select[contains(@id,'LifeEvent_LIFEEVENTSUBTYPEID')]//option[text()='Insulin Pump']")
+	private WebElement option_TreatmentType5;
+	@FindBy(xpath = "//select[contains(@id,'LifeEvent_LIFEEVENTSUBTYPEID')]//option[text()='Natural Theraphy']")
+	private WebElement option_TreatmentType6;
+//End: DHP - 57
+
+//Start: DHP - 99
+	@FindBy(xpath = "//select[contains(@id,'LifeEvent_LIFEEVENTSUBTYPEID')]//option[text()='Brain Surgeon']")
+	private WebElement option_AppointmentType1;
+	@FindBy(xpath = "//select[contains(@id,'LifeEvent_LIFEEVENTSUBTYPEID')]//option[text()='Dental']")
+	private WebElement option_AppointmentType2;
+	@FindBy(xpath = "//select[contains(@id,'LifeEvent_LIFEEVENTSUBTYPEID')]//option[text()='Dietitian']")
+	private WebElement option_AppointmentType3;
+//End: DHP - 99
+
+//Start: DHP - 110
+	@FindBy(xpath = "(//div[@class='ph'])[2]")
+	private WebElement dropdown_UserName;
+	@FindBy(xpath = "//a[@href='/DBHOrchestration/Profile.aspx']")
+	private WebElement option_Profile;
+	@FindBy(xpath = "(//a[@href='/DBHPatientUI/ProfileMedicalInfo.aspx'])[2]")
+	private WebElement link_MedicalInfo;
+	@FindBy(xpath = "//label[contains(@for,'PatientDemographics_GPPHONE')]")
+	private WebElement label_GPPhone;
+	@FindBy(xpath = "//select[contains(@id,'PatientDemographics_SPECIALTY')]")
+	private WebElement dropdown_MedicalInfoSpeciality;
+	@FindBy(xpath = "//select[contains(@id,'PatientDemographics_SPECIALTY')]//option[text()='Cardiologist']")
+	private WebElement option_PMISpeciality1;
+	@FindBy(xpath = "//select[contains(@id,'PatientDemographics_SPECIALTY')]//option[text()='Endocrinologist']")
+	private WebElement option_PMISpeciality2;
+	@FindBy(xpath = "//select[contains(@id,'PatientDemographics_SPECIALTY')]//option[text()='Medical Oncologist']")
+	private WebElement option_PMISpeciality3;
+	@FindBy(xpath = "//select[contains(@id,'PatientDemographics_SPECIALTY')]//option[text()='Neurologist']")
+	private WebElement option_PMISpeciality4;
+	@FindBy(xpath = "//select[contains(@id,'PatientDemographics_SPECIALTY')]//option[text()='Radiation Oncologist']")
+	private WebElement option_PMISpeciality5;
+//End: DHP - 110
+	
+	//Start: DHP - 182
+		@FindBy(xpath = "//label[contains(@for,'LifeEvent_LIFEEVENTSUBTYPEID') and text()='Treatment Type']")
+		private WebElement label_TreatmentType;
+		//End: DHP - 182
 	
 	
+	// ################################################## Return Page Objects
+	// ##################################################
 	
-	
-	
-	
-	
-	
-	
-	
-	// ################################################## Return Page Objects ##################################################
 	public WebElement getMedicardNumberError() {
 		return error_MedicareNumber;
 	}
+
 	public WebElement getSaveButton() {
 		return button_Save;
 	}
+
 	public WebElement getNextButton() {
 		return button_Next;
 	}
+
 	public WebElement getMedicareNumberField() {
 		return field_MedicareNumber;
 	}
+
 	public WebElement getBasicInformationlabel() {
 		return label_BasicInformation;
 	}
+
 	public WebElement getProfileNamelink() {
 		return link_ProfileName;
 	}
+
 	public WebElement getProfileNamelabel() {
 		return label_ProfileName;
 	}
+
 	public WebElement getPSAGraphContainer() {
 		return graph_HealthIndicator;
 	}
+
 	public WebElement getPSATabOnMyInfoPage() {
 		return getPSATabOnMyInfoPage;
 	}
+
 	public WebElement getDoctorPatientTab() {
 		return label_DoctorPatientTab;
 	}
@@ -306,5 +366,82 @@ public class Page_MyInfo extends Base {
 	public WebElement getMenubarAssessments() {
 		return menubar_Assessments;
 	}
+	
+	//Start: DHP - 57
+		public WebElement getOptionTreatment() {
+			return option_Treatment;
+		}
+		public WebElement getDropdownTreatmentType() {
+			return dropdown_TreatmentType;
+		}
+		public WebElement getTreatmentOption1() {
+			return option_TreatmentType1;
+		}
+		public WebElement getTreatmentOption2() {
+			return option_TreatmentType2;
+		}
+		public WebElement getTreatmentOption3() {
+			return option_TreatmentType3;
+		}
+		//End: DHP - 57
+		//Start: DHP - 99
+		public WebElement getAppointmentOption1() {
+				return option_AppointmentType1;
+			}
+		public WebElement getAppointmentOption2() {
+				return option_AppointmentType2;
+			}
+		public WebElement getAppointmentOption3() {
+				return option_AppointmentType3;
+			}
+		//End: DHP - 99
+		//Start: DHP - 100
+		public WebElement getTreatmentOption4() {
+			return option_TreatmentType4;
+		}
+		public WebElement getTreatmentOption5() {
+			return option_TreatmentType5;
+		}
+		public WebElement getTreatmentOption6() {
+			return option_TreatmentType6;
+		}
+		//End: DHP - 100
+		//Start: DHP - 110
+		public WebElement getUserNameDropdown() {
+			return dropdown_UserName;
+		}
+		public WebElement getOptionProfile() {
+			return option_Profile;
+		}
+		public WebElement getLinkMedicalInfo() {
+			return link_MedicalInfo;
+		}
+		public WebElement getLabelGPPhone() {
+			return label_GPPhone;
+		}
+		public WebElement getMedicalnfoSpecialityDropdown() {
+			return dropdown_MedicalInfoSpeciality;
+		}
+		public WebElement getPMIOption1() {
+			return option_PMISpeciality1;
+		}
+		public WebElement getPMIOption2() {
+			return option_PMISpeciality2;
+		}
+		public WebElement getPMIOption3() {
+			return option_PMISpeciality3;
+		}
+		public WebElement getPMIOption4() {
+			return option_PMISpeciality4;
+		}
+		public WebElement getPMIOption5() {
+			return option_PMISpeciality5;
+		}
+		//End: DHP - 110
+		//Start: DHP - 182
+		public WebElement getlabelTreatmentType() {
+			return label_TreatmentType;
+		}
+		//End: DHP - 182
 
 }

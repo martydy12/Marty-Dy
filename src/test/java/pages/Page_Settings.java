@@ -184,7 +184,396 @@ public class Page_Settings extends Base {
 	private WebElement label_DefaultLanguage;
 	@FindBy(xpath = "(//div[@class='dropdown-header select'])[3]")
 	private WebElement dropdown_DefaultLanguage;
-
+	//Start : DHP - 57 
+		@FindBy(xpath = "//div[contains(@id,'CheckBox_TreatmentSelectAll')]//input[@type='checkbox' and @checked='checked']")
+		private WebElement checkbox_TreatmentSpecialitySelectAllCheckbox;
+		@FindBy(xpath = "//a[contains(@id,'SpecialityAppointmentTable2_AddRow')]")
+		private WebElement link_AddAppointmentSpeciality;
+		@FindBy(xpath = "//div[contains(@id,'CheckBox_TreatmentSelectAll')]//input[@type='checkbox']")
+		private WebElement checkbox_TreatmentSpecialityDeselectAllCheckbox;
+		@FindBy(xpath = "//div[contains(@id,'SpecialityTreatment2')]//input[@value='Active Surveillance']")
+		private WebElement label_SpecialityTreatment1;
+		@FindBy(xpath = "//div[contains(@id,'SpecialityTreatment2')]//input[@value='Brachytherapy']")
+		private WebElement label_SpecialityTreatment2;
+		@FindBy(xpath = "//div[contains(@id,'SpecialityTreatment2')]//input[@value='Chemotherapy']")
+		private WebElement label_SpecialityTreatment3;
+		@FindBy(xpath = "(//div[contains(@id,'SpecialityTreatment2')]//input[@value='Active Surveillance']//following::td//input[@userscheckboxid='CheckBox0'])[1]")
+		private WebElement checkbox_SpecialityTreatment1;
+		@FindBy(xpath = "(//div[contains(@id,'SpecialityTreatment2')]//input[@value='Brachytherapy']//following::td//input[@userscheckboxid='CheckBox1'])[1]")
+		private WebElement checkbox_SpecialityTreatment2;
+		@FindBy(xpath = "(//div[contains(@id,'SpecialityTreatment2')]//input[@value='Chemotherapy']//following::td//input[@userscheckboxid='CheckBox2'])[1]")
+		private WebElement checkbox_SpecialityTreatment3;
+		@FindBy(xpath = "//table[contains(@id,'SpecialityTreatmentTable')]//a[@class='SaveRowAction']")
+		private WebElement button_SaveAddTreatmentSpeciality;
+		@FindBy(xpath = "//div[contains(@id,'CheckBox_TreatmentSelectAll')]//input[@type='checkbox']")
+		private WebElement checkbox_SelectAllSpecialityTreatment;
+		@FindBy(xpath = "//div[contains(@id,'Wait') and contains(@style,'display: none')]")
+		private WebElement widget_LoadingVisible;
+		@FindBy(xpath = "//div[contains(@id,'Wait') and contains(@style,'display: block')]")
+		private WebElement widget_LoadingInvisible;
+		//End : DHP - 57
+		//Start: DHP - 99
+		@FindBy(xpath = "//div[contains(@id,'SpecialityAppointment')]//span[contains(text(),'Speciality - Appointment')]")
+		private WebElement table_SpecialityAppointment;
+		@FindBy(xpath = "//div[contains(@id,'SpecialityAppointment')]//div[contains(text(),'Speciality Name')]")
+		private WebElement label_AppointmentSpecialityNameColumn;
+		@FindBy(xpath = "//div[contains(@id,'SpecialityAppointment')]//div[contains(text(),'Select All')]")
+		private WebElement label_AppointmentSpecialitySelectAllColumn;
+		@FindBy(xpath = "//div[contains(@id,'CheckBox_AppointmentSelectAll')]//input[@type='checkbox' and @checked='checked']")
+		private WebElement checkbox_AppointmentSpecialitySelectAllCheckbox;
+		@FindBy(xpath = "//div[contains(@id,'CheckBox_AppointmentSelectAll')]//input[@type='checkbox']")
+		private WebElement checkbox_AppointmentSpecialityDeselectAllCheckbox;
+		@FindBy(xpath = "//table[contains(@id,'SpecialityAppointmentTable2')]//a[@class='SaveRowAction']")
+		private WebElement button_SaveAddAppointmentSpeciality;
+		@FindBy(xpath = "//table[contains(@id,'SpecialityAppointmentTable2')]//a[@class='CancelRowAction']")
+		private WebElement button_CancelAddAppointmentSpeciality;
+		@FindBy(xpath = "//table[contains(@id,'SpecialityAppointmentTable2')]//input[contains(@id,'TextBox_Appointment') and contains(@class,'InEditMode') and contains(@name,'TextBox_Appointment')]")
+		private WebElement field_SpecialityAppointment;
+		@FindBy(xpath = "//table[contains(@id,'SpecialityAppointmentTable2')]//span[text()='This field cannot be blank']")
+		private WebElement validation_AddSpecialityAppointment;
+		@FindBy(xpath = "//div[contains(@id,'heckBox_AppointmentSelectAll')]//input[@type='checkbox']")
+		private WebElement checkbox_SelectAllSpecialityAppointment;
+		@FindBy(xpath = "//a[contains(@id,'SpecialityPMITable_AddRow')]")
+		private WebElement link_AddPatientMedInfoSpeciality;
+		@FindBy(xpath = "(//div[contains(@id,'SpecialityAppointment')]//input[@value='Brain Surgeon']//following::td//input[@userscheckboxid='CheckBox0'])[1]")
+		private WebElement checkbox_SpecialityAppointment1;
+		@FindBy(xpath = "(//div[contains(@id,'SpecialityAppointment')]//input[@value='Dental']//following::td//input[@userscheckboxid='CheckBox1'])[1]")
+		private WebElement checkbox_SpecialityAppointment2;
+		@FindBy(xpath = "(//div[contains(@id,'SpecialityAppointment')]//input[@value='Dietitian']//following::td//input[@userscheckboxid='CheckBox2'])[1]")
+		private WebElement checkbox_SpecialityAppointment3;
+		@FindBy(xpath = "//div[contains(@id,'SpecialityAppointment')]//input[@value='Brain Surgeon']")
+		private WebElement label_SpecialityAppointment1;
+		@FindBy(xpath = "//div[contains(@id,'SpecialityAppointment')]//input[@value='Dental']")
+		private WebElement label_SpecialityAppointment2;
+		@FindBy(xpath = "//div[contains(@id,'SpecialityAppointment')]//input[@value='Dietitian']")
+		private WebElement label_SpecialityAppointment3;
+		//End: DHP - 99
+		//Start: DHP - 104
+		@FindBy(xpath = "//div[contains(@id,'SpecialityClinician')]//span[contains(text(),'Speciality - Clinician')]")
+		private WebElement table_SpecialityClinician;
+		@FindBy(xpath = "//div[contains(@id,'SpecialityClinician')]//div[contains(text(),'Speciality Name')]")
+		private WebElement label_ClinicianSpecialityNameColumn;
+		@FindBy(xpath = "//div[contains(@id,'SpecialityClinician')]//span[contains(text(),'Select All')]")
+		private WebElement label_ClinicianSpecialitySelectAllColumn;
+		@FindBy(xpath = "//div[contains(@id,'CheckBox_UsersSelectAll')]//input[@type='checkbox' and @checked='checked']")
+		private WebElement checkbox_ClinicianSpecialitySelectAllCheckbox;
+		@FindBy(xpath = "//div[contains(@id,'CheckBox_UsersSelectAll')]//input[@type='checkbox']")
+		private WebElement checkbox_ClinicianSpecialityDeselectAllCheckbox;
+		@FindBy(xpath = "//table[contains(@id,'SpecialityClinicianTable')]//a[@class='SaveRowAction']")
+		private WebElement button_SaveAddClinicianSpeciality;
+		@FindBy(xpath = "//table[contains(@id,'SpecialityClinicianTable')]//a[@class='CancelRowAction']")
+		private WebElement button_CancelAddClinicianSpeciality;
+		@FindBy(xpath = "//table[contains(@id,'SpecialityClinicianTable')]//input[contains(@id,'TextBox_Users') and contains(@class,'InEditMode') and contains(@name,'TextBox_Users')]")
+		private WebElement field_SpecialityClinician;
+		@FindBy(xpath = "//table[contains(@id,'SpecialityClinicianTable')]//span[text()='This field cannot be blank']")
+		private WebElement validation_AddSpecialityClinician;
+		@FindBy(xpath = "//div[contains(@id,'CheckBox_UsersSelectAll')]//input[@type='checkbox']")
+		private WebElement checkbox_SelectAllSpecialityClinician;
+		@FindBy(xpath = "(//div[contains(@id,'SpecialityClinician')]//input[@value='Exercise Physiologist']//following::td//input[@userscheckboxid='CheckBox0'])[1]")
+		private WebElement checkbox_SpecialityClinician1;
+		@FindBy(xpath = "(//div[contains(@id,'SpecialityClinician')]//input[@value='General Practitioner (GP)']//following::td//input[@userscheckboxid='CheckBox1'])[1]")
+		private WebElement checkbox_SpecialityClinician2;
+		@FindBy(xpath = "(//div[contains(@id,'SpecialityClinician')]//input[@value='Pathologist']//following::td//input[@userscheckboxid='CheckBox2'])[1]")
+		private WebElement checkbox_SpecialityClinician3;
+		@FindBy(xpath = "//div[contains(@id,'SpecialityClinician')]//input[@value='Exercise Physiologist']")
+		private WebElement label_SpecialityClinician1;
+		@FindBy(xpath = "//div[contains(@id,'SpecialityClinician')]//input[@value='General Practitioner (GP)']")
+		private WebElement label_SpecialityClinician2;
+		@FindBy(xpath = "//div[contains(@id,'SpecialityClinician')]//input[@value='Pathologist']")
+		private WebElement label_SpecialityClinician3;
+		//End: DHP - 104
+		//Start: DHP - 110
+		@FindBy(xpath = "//div[contains(@id,'SpecialityPMI')]//span[contains(text(),'Speciality - Patient Medical Info')]")
+		private WebElement table_SpecialityPMI;
+		@FindBy(xpath = "//div[contains(@id,'SpecialityPMI')]//div[contains(text(),'Speciality Name')]")
+		private WebElement label_PMISpecialityNameColumn;
+		@FindBy(xpath = "//div[contains(@id,'SpecialityPMI')]//span[contains(text(),'Select All')]")
+		private WebElement label_PMISpecialitySelectAllColumn;
+		@FindBy(xpath = "//div[contains(@id,'CheckBox_PMISelectAll')]//input[@type='checkbox' and @checked='checked']")
+		private WebElement checkbox_PMISpecialitySelectAllCheckbox;
+		@FindBy(xpath = "//div[contains(@id,'CheckBox_PMISelectAll')]//input[@type='checkbox']")
+		private WebElement checkbox_PMISpecialityDeselectAllCheckbox;
+		@FindBy(xpath = "//table[contains(@id,'SpecialityPMITable')]//a[@class='SaveRowAction']")
+		private WebElement button_SaveAddPMISpeciality;
+		@FindBy(xpath = "//table[contains(@id,'SpecialityPMITable')]//a[@class='CancelRowAction']")
+		private WebElement button_CancelAddPMISpeciality;
+		@FindBy(xpath = "//table[contains(@id,'SpecialityPMITable')]//input[contains(@id,'TextBox_PMI') and contains(@class,'InEditMode') and contains(@name,'TextBox_PMI')]")
+		private WebElement field_SpecialityPMI;
+		@FindBy(xpath = "//table[contains(@id,'SpecialityPMITable')]//span[text()='This field cannot be blank']")
+		private WebElement validation_AddSpecialityPMI;
+		@FindBy(xpath = "//div[contains(@id,'CheckBox_PMISelectAll')]//input[@type='checkbox']")
+		private WebElement checkbox_SelectAllSpecialityPMI;
+		@FindBy(xpath = "(//div[contains(@id,'SpecialityPMI')]//input[@value='Cardiologist']//following::td//input[@userscheckboxid='CheckBox0'])[1]")
+		private WebElement checkbox_SpecialityPMI1;
+		@FindBy(xpath = "(//div[contains(@id,'SpecialityPMI')]//input[@value='Endocrinologist']//following::td//input[@userscheckboxid='CheckBox1'])[1]")
+		private WebElement checkbox_SpecialityPMI2;
+		@FindBy(xpath = "(//div[contains(@id,'SpecialityPMI')]//input[@value='Medical Oncologist']//following::td//input[@userscheckboxid='CheckBox2'])[1]")
+		private WebElement checkbox_SpecialityPMI3;
+		@FindBy(xpath = "//div[contains(@id,'SpecialityPMI')]//input[@value='Cardiologist']")
+		private WebElement label_SpecialityPMI1;
+		@FindBy(xpath = "//div[contains(@id,'SpecialityPMI')]//input[@value='Endocrinologist']")
+		private WebElement label_SpecialityPMI2;
+		@FindBy(xpath = "//div[contains(@id,'SpecialityPMI')]//input[@value='Medical Oncologist']")
+		private WebElement label_SpecialityPMI3;
+		@FindBy(xpath = "//a[contains(@id,'SpecialityClinicianTable_AddRow')]")
+		private WebElement link_AddClinicianSpeciality;
+		//End: DHP - 110
+		//Start: DHP - 119
+		@FindBy(xpath = "(//div[contains(@id,'Appointment_Settings')]//div[contains(@id,'ToggleButtonWrapper') and @class='toggle-button'])[1]")
+		private WebElement toggle_VideoConfeOFF;
+		@FindBy(xpath = "(//div[contains(@id,'Appointment_Settings')]//div[contains(@id,'ToggleButtonWrapper') and @class='toggle-button toggle-button-checked'])[1]")
+		private WebElement toggle_VideoConfeON;
+		@FindBy(xpath = "(//div[contains(@id,'Appointment_Settings')]//div[contains(@id,'ToggleButtonWrapper') and @class='toggle-button'])[2]")
+		private WebElement toggle_ClinicVisitOFF;
+		@FindBy(xpath = "(//div[contains(@id,'Appointment_Settings')]//div[contains(@id,'ToggleButtonWrapper') and @class='toggle-button toggle-button-checked'])[2]")
+		private WebElement toggle_ClinicVisitON;
+		@FindBy(xpath = "(//div[contains(@id,'Appointment_Settings')]//div[contains(@id,'ToggleButtonWrapper')])[1]")
+		private WebElement toggle_VideoConfe;
+		@FindBy(xpath = "(//div[contains(@id,'Appointment_Settings')]//div[contains(@id,'ToggleButtonWrapper')])[2]")
+		private WebElement toggle_ClinicVisit;
+		//End: DHP - 119
+	
+		//Start: DHP - 104
+		@FindBy(xpath = "//select[contains(@id,'Clinician_ClinicianSpeciality')]")
+		private WebElement dropdown_ClinicianSpeciality;
+		@FindBy(xpath = "//option[contains(text(),'General Practitioner (GP)')]")
+		private WebElement option_GP;
+		@FindBy(xpath = "//option[contains(text(),'Exercise Physiologist')]")
+		private WebElement option_EP;
+		@FindBy(xpath = "//option[contains(text(),'Pathologist')]")
+		private WebElement option_Pathologist;
+		@FindBy(xpath = "//div[contains(@id,'SpecialityClinician')]//input[@value='Plantologist']")
+		private WebElement option_Plantologist;
+		@FindBy(xpath = "//div[contains(@id,'SpecialityClinician')]//input[@value='Podiatrist']")
+		private WebElement option_Podiatrist;
+		@FindBy(xpath = "//div[contains(@id,'SpecialityClinician')]//input[@value='Zoologist']")
+		private WebElement option_Zoologist;
+		//End: DHP - 104
+		//Start: DHP - 57
+		public WebElement getTreatmentSpecialitySelectAllCheckbox() {
+			return checkbox_TreatmentSpecialitySelectAllCheckbox;
+		}
+		public WebElement getAddAppointmentSpeciality() {
+			return link_AddAppointmentSpeciality;
+		}
+		public WebElement getTreatmentSpecialityDeselectAllCheckbox() {
+			return checkbox_TreatmentSpecialityDeselectAllCheckbox;
+		}
+		public WebElement getSpecialityTreatment1() {
+			return label_SpecialityTreatment1;
+		}
+		public WebElement getSpecialityTreatment2() {
+			return label_SpecialityTreatment2;
+		}
+		public WebElement getSpecialityTreatment3() {
+			return label_SpecialityTreatment3;
+		}
+		public WebElement getSpecialityTreatmentCheckbox1() {
+			return checkbox_SpecialityTreatment1;
+		}
+		public WebElement getSpecialityTreatmentCheckbox2() {
+			return checkbox_SpecialityTreatment2;
+		}
+		public WebElement getSpecialityTreatmentCheckbox3() {
+			return checkbox_SpecialityTreatment3;
+		}
+		public WebElement getSaveAddTreatmentSpeciality() {
+			return button_SaveAddTreatmentSpeciality;
+		}
+		public WebElement getSelectAllSpecialityTreatment() {
+			return checkbox_SelectAllSpecialityTreatment;
+		}
+		public WebElement getLoadingVisible() {
+			return widget_LoadingVisible;
+		}
+		public WebElement getLoadingInvisible() {
+			return widget_LoadingInvisible;
+		}
+		//End: DHP - 57
+		//Start: DHP -99
+		public WebElement getSpecialityAppointmentTable() {
+			return table_SpecialityAppointment;
+		}
+		public WebElement getAppointmentSpecialityNameColumn() {
+			return label_AppointmentSpecialityNameColumn;
+		}
+		public WebElement getAppointmentSpecialitySelectAllColumn() {
+			return label_AppointmentSpecialitySelectAllColumn;
+		}
+		public WebElement getAppointmentSpecialitySelectAllCheckbox() {
+			return checkbox_AppointmentSpecialitySelectAllCheckbox;
+		}
+		public WebElement getAppointmentSpecialityDeselectAllCheckbox() {
+			return checkbox_AppointmentSpecialityDeselectAllCheckbox;
+		}
+		public WebElement getSaveAddAppointmentSpeciality() {
+			return button_SaveAddAppointmentSpeciality;
+		}
+		public WebElement getCancelAddAppointmentSpeciality() {
+			return button_CancelAddAppointmentSpeciality;
+		}
+		public WebElement getInputAppointmentSpeciality() {
+			return field_SpecialityAppointment;
+		}
+		public WebElement getAddAppointmentSpecialityValidation() {
+			return validation_AddSpecialityAppointment;
+		}
+		public WebElement getSelectAllSpecialityAppointment() {
+			return checkbox_SelectAllSpecialityAppointment;
+		}
+		public WebElement getAddPatientMedInfoSpeciality() {
+			return link_AddPatientMedInfoSpeciality;
+		}
+		public WebElement getSpecialityAppointmentCheckbox1() {
+			return checkbox_SpecialityAppointment1;
+		}
+		public WebElement getSpecialityAppointmentCheckbox2() {
+			return checkbox_SpecialityAppointment2;
+		}
+		public WebElement getSpecialityAppointmentCheckbox3() {
+			return checkbox_SpecialityAppointment3;
+		}
+		public WebElement getSpecialityAppointment1() {
+			return label_SpecialityAppointment1;
+		}
+		public WebElement getSpecialityAppointment2() {
+			return label_SpecialityAppointment2;
+		}
+		public WebElement getSpecialityAppointment3() {
+			return label_SpecialityAppointment3;
+		}
+		//End: DHP - 99
+		//Start: DHP - 104
+		public WebElement getSpecialityClinicianTable() {
+			return table_SpecialityClinician;
+		}
+		public WebElement getClinicianSpecialityNameColumn() {
+			return label_ClinicianSpecialityNameColumn;
+		}
+		public WebElement getClinicianSpecialitySelectAllColumn() {
+			return label_ClinicianSpecialitySelectAllColumn;
+		}
+		public WebElement getClinicianSpecialitySelectAllCheckbox() {
+			return checkbox_ClinicianSpecialitySelectAllCheckbox;
+		}
+		public WebElement getClinicianSpecialityDeselectAllCheckbox() {
+			return checkbox_ClinicianSpecialityDeselectAllCheckbox;
+		}
+		public WebElement getSaveAddClinicianSpeciality() {
+			return button_SaveAddClinicianSpeciality;
+		}
+		public WebElement getCancelAddClinicianSpeciality() {
+			return button_CancelAddClinicianSpeciality;
+		}
+		public WebElement getInputClinicianSpeciality() {
+			return field_SpecialityClinician;
+		}
+		public WebElement getAddClinicianSpecialityValidation() {
+			return validation_AddSpecialityClinician;
+		}
+		public WebElement getSelectAllSpecialityClinician() {
+			return checkbox_SelectAllSpecialityClinician;
+		}
+		public WebElement getSpecialityClinicianCheckbox1() {
+			return checkbox_SpecialityClinician1;
+		}
+		public WebElement getSpecialityClinicianCheckbox2() {
+			return checkbox_SpecialityClinician2;
+		}
+		public WebElement getSpecialityClinicianCheckbox3() {
+			return checkbox_SpecialityClinician3;
+		}
+		public WebElement getSpecialityClinician1() {
+			return label_SpecialityClinician1;
+		}
+		public WebElement getSpecialityClinician2() {
+			return label_SpecialityClinician2;
+		}
+		public WebElement getSpecialityClinician3() {
+			return label_SpecialityClinician3;
+		}
+		//End: DHP - 104
+		//Start: DHP - 110
+		public WebElement getSpecialityPMITable() {
+			return table_SpecialityPMI;
+		}
+		public WebElement getPMISpecialityNameColumn() {
+			return label_PMISpecialityNameColumn;
+		}
+		public WebElement getPMISpecialitySelectAllColumn() {
+			return label_PMISpecialitySelectAllColumn;
+		}
+		public WebElement getPMISpecialitySelectAllCheckbox() {
+			return checkbox_PMISpecialitySelectAllCheckbox;
+		}
+		public WebElement getPMISpecialityDeselectAllCheckbox() {
+			return checkbox_PMISpecialityDeselectAllCheckbox;
+		}
+		public WebElement getSaveAddPMISpeciality() {
+			return button_SaveAddPMISpeciality;
+		}
+		public WebElement getCancelAddPMISpeciality() {
+			return button_CancelAddPMISpeciality;
+		}
+		public WebElement getInputPMISpeciality() {
+			return field_SpecialityPMI;
+		}
+		public WebElement getAddPMISpecialityValidation() {
+			return validation_AddSpecialityPMI;
+		}
+		public WebElement getSelectAllSpecialityPMI() {
+			return checkbox_SelectAllSpecialityPMI;
+		}
+		public WebElement getAddClinicianSpeciality() {
+			return link_AddClinicianSpeciality;
+		}
+		public WebElement getSpecialityPMICheckbox1() {
+			return checkbox_SpecialityPMI1;
+		}
+		public WebElement getSpecialityPMICheckbox2() {
+			return checkbox_SpecialityPMI2;
+		}
+		public WebElement getSpecialityPMICheckbox3() {
+			return checkbox_SpecialityPMI3;
+		}
+		public WebElement getSpecialityPMI1() {
+			return label_SpecialityPMI1;
+		}
+		public WebElement getSpecialityPMI2() {
+			return label_SpecialityPMI2;
+		}
+		public WebElement getSpecialityPMI3() {
+			return label_SpecialityPMI3;
+		}
+		//End: DHP - 110
+	
+		
+		//Start: DHP - 57
+		//Start: DHP - 119
+		public WebElement getLabelHealthIndicator() {
+			return label_HealthIndicator;
+		}
+		public WebElement getVCToggleOFF() {
+			return toggle_VideoConfeOFF;
+		}
+		public WebElement getVCToggleON() {
+			return toggle_VideoConfeON;
+		}
+		public WebElement getCVToggleOFF() {
+			return toggle_ClinicVisitOFF;
+		}
+		public WebElement getCVToggleON() {
+			return toggle_ClinicVisitON;
+		}
+		public WebElement getVCToggle() {
+			return toggle_VideoConfe;
+		}
+		public WebElement getCVToggle() {
+			return toggle_ClinicVisit;
+		}
+		
+	
+		
 	public WebElement getDefaultLanguageDropdown() {
 		return dropdown_DefaultLanguage;
 	}

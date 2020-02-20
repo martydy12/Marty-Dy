@@ -54,9 +54,33 @@ public class Page_Appointments extends Base {
 	private WebElement button_CloseSuccessAppointmentRequest;
 	@FindBy(xpath = "//input[@value='Start Assessment']")
 	private WebElement button_StartAssesment;
+	//Start: DHP - 119
+		@FindBy(xpath = "//div[contains(@id,'contactMeth')]//span[text()='Phone']")
+		private WebElement button_ContactByPhone;
+		@FindBy(xpath = "//div[contains(@id,'contactMeth')]//span[text()='Video Conference']")
+		private WebElement button_ContactByVideoConfe;
+		@FindBy(xpath = "//div[contains(@id,'contactMeth')]//span[text()='In Clinic Visit']")
+		private WebElement button_ContactByClinicVisit;
+		@FindBy(xpath = "//input[@value='Back']")
+		private WebElement button_Back;
+		//End: DHP - 119
 
 	// ############################################## Return Page Objects ###############################################
-	public WebElement getAppointmentsLink() {
+		//Start: DHP - 119
+		public WebElement getContactByPhone() {
+			return button_ContactByPhone;	
+		}
+		public WebElement getContactByVideoConfe() {
+			return button_ContactByVideoConfe;	
+		}
+		public WebElement getContactByClinicVisit() {
+			return button_ContactByClinicVisit;	
+		}
+		public WebElement getButtonBack() {
+			return button_Back;	
+		}
+		//End: DHP - 119
+		public WebElement getAppointmentsLink() {
 		return menu_AppointmentsLink;
 	}
 

@@ -111,9 +111,89 @@ public class Steps_Appointments extends Base {
 		}
 
 	}
-
+	
+		//End: DHP - 51
+	
+		
 	// ################################################## Then Steps ###################################################
-
+	//Start: DHP - 119
+		@When("^user request an appointment$")
+		public void user_request_an_appointment() throws Throwable {
+			try {
+				//clicks on appointment menu
+			webElementClick(pages.getpageAppointments().getAppointmentsLink());	
+			waitUntilWebElementVisible(pages.getpageAppointments().getRequestAppointmentButton());
+			assertTrue(isWebElementDisplayed(pages.getpageAppointments().getAppointmentHeader()));
+			//clicks on request appointment button
+			webElementClick(pages.getpageAppointments().getRequestAppointmentButton());
+			//checks on request appointment page
+			waitUntilWebElementVisible(pages.getpageAppointments().getRequestAppointmentLabel());
+			assertTrue(isWebElementDisplayed(pages.getpageAppointments().getRequestAppointmentLabel()));
+			//select appointment question
+			webElementClick(pages.getpageAppointments().getAppointmentQuestion());
+			//check clinicians
+			waitUntilWebElementVisible(pages.getpageAppointments().getSelectClinicianHeader());
+			assertTrue(isWebElementDisplayed(pages.getpageAppointments().getSelectClinicianHeader()));
+			//select clinician's available time
+			scrollToWebElement(pages.getpageAppointments().getSelectClinicianTimeline1stPage());
+			//waitUntilWebElementVisible(pages.getpageAppointments().getBookClinician());
+			Thread.sleep(5000);
+			webElementClick(pages.getpageAppointments().getBookClinician());
+			Thread.sleep(5000);
+			//waitUntilWebElementVisible(pages.getpageAppointments().getBookClinician());
+			//check if redirected to select clinician schedule
+			waitUntilWebElementVisible(pages.getpageAppointments().getSelectAnotherClinician());
+			assertTrue(isWebElementDisplayed(pages.getpageAppointments().getRequestAppointmentLabel()));
+			//check page labels
+			assertTrue(isWebElementDisplayed(pages.getpageAppointments().getSelectAnotherClinicianLabel()));
+			assertTrue(isWebElementDisplayed(pages.getpageAppointments().getSelectClinicianTimeline()));
+			//select date
+			webElementClick(pages.getpageAppointments().getAppointmentDateIsToday());
+			//select time
+			waitUntilWebElementVisible(pages.getpageAppointments().getAppointmentDateTimeContainer());
+			webElementClick(pages.getpageAppointments().getAppointmentTime());
+			
+			waitUntilWebElementVisible(pages.getpageAppointments().getButtonBack());
+			waitUntilWebElementVisible(pages.getpageAppointments().getContactByClinicVisit());
+			
+			
+			}
+			catch (Exception exception) {
+				throw new Exception("Unable to request an appointment." + "\n" + exception.getMessage());
+				
+			}
+		}
+		//End: DHP - 119
+	
+		//Start: DHP - 119
+		@Then("^options to contact patient was displayed$")
+		public void options_to_contact_patient_was_displayed() throws Throwable {
+			try {
+				
+				assertTrue(isWebElementDisplayed(pages.getpageAppointments().getContactByPhone()));
+				assertTrue(isWebElementDisplayed(pages.getpageAppointments().getContactByVideoConfe()));
+				assertTrue(isWebElementDisplayed(pages.getpageAppointments().getContactByClinicVisit()));
+				
+			}
+			catch (AssertionError exception) {
+				throw new AssertionError("options to contact patient is not displayed" + "\n" + exception.getMessage());
+				
+			}
+		}
+		//End: DHP - 119
+		//Start: DHP - 182
+		@Then("^treatment type dropdown label was displayed$")
+		public void treatment_type_dropdown_label_was_displayed() throws Throwable {
+			try {
+				
+				assertTrue(isWebElementDisplayed(pages.getPageMyInfo().getlabelTreatmentType()));
+				
+			}
+			catch (AssertionError exception) {
+				throw new AssertionError("Treatment type dropdown label is not displayed." + "\n" + exception.getMessage());
+			}
+		}
+		//End: DHP - 182
 	@Then("^changes on request appointment page was displayed$")
 	public void changes_on_request_appointment_page_was_displayed() throws Throwable {
 		try {

@@ -198,7 +198,45 @@ public class Steps_Clinician extends Base {
 		}
 
 	}
+	//Start: DHP - 104
+		@When("^user clicks on create a clinician button$")
+		public void user_clicks_on_create_a_clinician_button() throws Throwable {
+			   try {
+				   webElementClick(pages.getPageClinician().getCreateClinicianButton());
+				   waitUntilWebElementVisible(pages.getPageClinician().getClinicianSpecialityDropdown());
+				   webElementClick(pages.getPageClinician().getClinicianSpecialityDropdown());
+				   	
 
+				} catch (Exception exception) {
+					throw new Exception(
+							"Clinician speciality dropdown was not displayed." + "\n" + exception.getMessage());
+				}
+		}
+		
+		@When("^disabled clinician speciality is not displayed in the speciality dropdown$")
+		public void disabled_clinician_speciality_is_not_displayed_in_the_speciality_dropdown() throws Throwable {
+			try {
+				assertTrue(!isWebElementDisplayed(pages.getPageClinician().getPodiatrist()));
+				assertTrue(!isWebElementDisplayed(pages.getPageClinician().getPlantologist()));
+				assertTrue(!isWebElementDisplayed(pages.getPageClinician().getZoologist()));
+			} catch (AssertionError exception) {
+			  throw new AssertionError("Horizontal tabs on settings page is incomplete" + "\n" + exception.getMessage());
+			}
+		}
+		//End: DHP - 104
+		
+		//Start: DHP - 104
+		@Then("^default clinician speciality is displayed in the speciality dropdown$")
+		public void default_clinician_speciality_is_displayed_in_the_speciality_dropdown() throws Throwable {
+			try {
+				assertTrue(isWebElementDisplayed(pages.getPageClinician().getOptionGP()));
+				assertTrue(isWebElementDisplayed(pages.getPageClinician().getOptionEP()));
+				assertTrue(isWebElementDisplayed(pages.getPageClinician().getPathologist()));
+			} catch (AssertionError exception) {
+			  throw new AssertionError("Horizontal tabs on settings page is incomplete" + "\n" + exception.getMessage());
+			}
+		}
+		//End: DHP - 104
 	// ################################################## Then Steps ##################################################
 	@Then("^the following message is displayed: No records found\\.$")
 	public void the_following_message_is_displayed_No_records_found() throws Throwable {

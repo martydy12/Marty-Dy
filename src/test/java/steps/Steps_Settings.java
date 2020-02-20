@@ -741,28 +741,276 @@ public class Steps_Settings extends Base {
 		}
 	}
 
-	@When("^user disable assessment in the general settings page$")
-	public void user_disable_assessment_in_the_general_settings_page() throws Throwable {
-		try {
-			scrollToWebElement(pages.getPageSettings().getButtonSave());
-			isWebElementDisplayed(pages.getPageSettings().getToggleONHealthIndicator());
-			if (isXPathNotExisting("//input[contains(@id,'Chk_Assessment') and @checked='checked']")) {
-				scrollToWebElement(pages.getPageSettings().getButtonSave());
-				Thread.sleep(5000);
-				webElementClick(pages.getPageSettings().getButtonSave());
-				Thread.sleep(5000);
-			} else {
-				webElementClick(pages.getPageSettings().getToggleAssessment());
-				Thread.sleep(5000);
-				scrollToWebElement(pages.getPageSettings().getButtonSave());
-				Thread.sleep(5000);
-				webElementClick(pages.getPageSettings().getButtonSave());
-				Thread.sleep(5000);
+	
+	//Start : DHP - 51
+		
+		
+		//Start: DHP - 57
+	
+		
+		//End: DHP - 57
+		
+		//Start: DHP - 99
+		@When("^user enable default speciality appointment for patient$")
+		public void user_enable_default_speciality_appointment_for_patient() throws Throwable {
+			try {
+				scrollToWebElement(pages.getPageSettings().getAddPatientMedInfoSpeciality());
+				if (isWebElementDisplayed(pages.getPageSettings().getAppointmentSpecialitySelectAllCheckbox())) {
+
+					scrollToWebElement(pages.getPageSettings().getAddPatientMedInfoSpeciality());
+
+					// click select all checkbox
+					webElementClick(pages.getPageSettings().getSelectAllSpecialityAppointment());
+					assertTrue(isWebElementDisplayed(pages.getPageSettings().getAppointmentSpecialityDeselectAllCheckbox()));
+					Thread.sleep(2000);
+					// check and select checkbox1
+					webElementClick(pages.getPageSettings().getSpecialityAppointment1());
+					webElementClick(pages.getPageSettings().getSpecialityAppointmentCheckbox1());
+					webElementClick(pages.getPageSettings().getSaveAddAppointmentSpeciality());
+					Thread.sleep(2000);
+					// check and select checkbox2
+					webElementClick(pages.getPageSettings().getSpecialityAppointment2());
+					webElementClick(pages.getPageSettings().getSpecialityAppointmentCheckbox2());
+					webElementClick(pages.getPageSettings().getSaveAddAppointmentSpeciality());
+					Thread.sleep(2000);
+					// check and select checkbox3
+					webElementClick(pages.getPageSettings().getSpecialityAppointment3());
+					webElementClick(pages.getPageSettings().getSpecialityAppointmentCheckbox3());
+					webElementClick(pages.getPageSettings().getSaveAddAppointmentSpeciality());
+					Thread.sleep(2000);
+				}
+				else if(isWebElementDisplayed(pages.getPageSettings().getAppointmentSpecialityDeselectAllCheckbox()))
+				{
+					webElementClick(pages.getPageSettings().getSelectAllSpecialityAppointment());
+					//assertTrue(isWebElementDisplayed(pages.getPageSettings().getTreatmentSpecialitySelectAllCheckbox()));
+					Thread.sleep(2000);
+					webElementClick(pages.getPageSettings().getSelectAllSpecialityAppointment());
+					//assertTrue(isWebElementDisplayed(pages.getPageSettings().getTreatmentSpecialityDeselectAllCheckbox()));
+					Thread.sleep(2000);
+
+					// check and select checkbox1
+					webElementClick(pages.getPageSettings().getSpecialityAppointment1());
+					webElementClick(pages.getPageSettings().getSpecialityAppointmentCheckbox1());
+					webElementClick(pages.getPageSettings().getSaveAddAppointmentSpeciality());
+					Thread.sleep(2000);
+					// check and select checkbox2
+					webElementClick(pages.getPageSettings().getSpecialityAppointment2());
+					webElementClick(pages.getPageSettings().getSpecialityAppointmentCheckbox2());
+					webElementClick(pages.getPageSettings().getSaveAddAppointmentSpeciality());
+					Thread.sleep(2000);
+					// check and select checkbox3
+					webElementClick(pages.getPageSettings().getSpecialityAppointment3());
+					webElementClick(pages.getPageSettings().getSpecialityAppointmentCheckbox3());
+					webElementClick(pages.getPageSettings().getSaveAddAppointmentSpeciality());
+					Thread.sleep(2000);
+				}
 			}
-		} catch (Exception exception) {
-			throw new Exception("Unable to toggle off assessment option" + "\n" + exception.getMessage());
+			catch (Exception exception) {
+				throw new Exception("Unable to enable speciality for appointment." + "\n" + exception.getMessage());
+			}
 		}
-	}
+		//End: DHP - 99
+		
+		//Start: DHP - 104
+		@When("^user enable default speciality clinician for clinician manager$")
+		public void user_enable_default_speciality_clinician_for_clinician_manager() throws Throwable {
+			try {
+
+				if (isWebElementDisplayed(pages.getPageSettings().getClinicianSpecialitySelectAllCheckbox())) {
+
+					// click select all checkbox
+					webElementClick(pages.getPageSettings().getSelectAllSpecialityClinician());
+					assertTrue(isWebElementDisplayed(pages.getPageSettings().getClinicianSpecialityDeselectAllCheckbox()));
+					Thread.sleep(2000);
+					// check and select checkbox1
+					webElementClick(pages.getPageSettings().getSpecialityClinician1());
+					webElementClick(pages.getPageSettings().getSpecialityClinicianCheckbox1());
+					webElementClick(pages.getPageSettings().getSaveAddClinicianSpeciality());
+					Thread.sleep(2000);
+					// check and select checkbox2
+					webElementClick(pages.getPageSettings().getSpecialityClinician2());
+					webElementClick(pages.getPageSettings().getSpecialityClinicianCheckbox2());
+					webElementClick(pages.getPageSettings().getSaveAddClinicianSpeciality());
+					Thread.sleep(2000);
+					// check and select checkbox3
+					webElementClick(pages.getPageSettings().getSpecialityClinician3());
+					webElementClick(pages.getPageSettings().getSpecialityClinicianCheckbox3());
+					webElementClick(pages.getPageSettings().getSaveAddClinicianSpeciality());
+					Thread.sleep(2000);
+				}
+				else if(isWebElementDisplayed(pages.getPageSettings().getClinicianSpecialityDeselectAllCheckbox()))
+				{
+					webElementClick(pages.getPageSettings().getSelectAllSpecialityClinician());
+					//assertTrue(isWebElementDisplayed(pages.getPageSettings().getClinicianSpecialitySelectAllCheckbox()));
+					Thread.sleep(2000);
+					webElementClick(pages.getPageSettings().getSelectAllSpecialityClinician());
+					//assertTrue(isWebElementDisplayed(pages.getPageSettings().getClinicianSpecialityDeselectAllCheckbox()));
+					Thread.sleep(2000);
+
+					// check and select checkbox1
+					webElementClick(pages.getPageSettings().getSpecialityClinician1());
+					webElementClick(pages.getPageSettings().getSpecialityClinicianCheckbox1());
+					webElementClick(pages.getPageSettings().getSaveAddClinicianSpeciality());
+					Thread.sleep(2000);
+					// check and select checkbox2
+					webElementClick(pages.getPageSettings().getSpecialityClinician2());
+					webElementClick(pages.getPageSettings().getSpecialityClinicianCheckbox2());
+					webElementClick(pages.getPageSettings().getSaveAddClinicianSpeciality());
+					Thread.sleep(2000);
+					// check and select checkbox3
+					webElementClick(pages.getPageSettings().getSpecialityClinician3());
+					webElementClick(pages.getPageSettings().getSpecialityClinicianCheckbox3());
+					webElementClick(pages.getPageSettings().getSaveAddClinicianSpeciality());
+					Thread.sleep(2000);
+
+				}
+			}
+			catch (Exception exception) {
+				throw new Exception("Unable to enable speciality for Clinician." + "\n" + exception.getMessage());
+			}
+		}
+		//End: DHP - 104
+		
+		//Start: DHP - 110
+		@When("^user enable default speciality - patient medical info$")
+		public void user_enable_default_speciality_patient_medical_info() throws Throwable {
+				try {
+					scrollToWebElement(pages.getPageSettings().getAddClinicianSpeciality());
+					if (isWebElementDisplayed(pages.getPageSettings().getPMISpecialitySelectAllCheckbox())) {
+
+						scrollToWebElement(pages.getPageSettings().getAddClinicianSpeciality());
+
+						// click select all checkbox
+						webElementClick(pages.getPageSettings().getSelectAllSpecialityPMI());
+						assertTrue(isWebElementDisplayed(pages.getPageSettings().getPMISpecialityDeselectAllCheckbox()));
+						Thread.sleep(2000);
+						// check and select checkbox1
+						webElementClick(pages.getPageSettings().getSpecialityPMI1());
+						webElementClick(pages.getPageSettings().getSpecialityPMICheckbox1());
+						webElementClick(pages.getPageSettings().getSaveAddPMISpeciality());
+						Thread.sleep(2000);
+						// check and select checkbox2
+						webElementClick(pages.getPageSettings().getSpecialityPMI2());
+						webElementClick(pages.getPageSettings().getSpecialityPMICheckbox2());
+						webElementClick(pages.getPageSettings().getSaveAddPMISpeciality());
+						Thread.sleep(2000);
+						// check and select checkbox3
+						webElementClick(pages.getPageSettings().getSpecialityPMI3());
+						webElementClick(pages.getPageSettings().getSpecialityPMICheckbox3());
+						webElementClick(pages.getPageSettings().getSaveAddPMISpeciality());
+						Thread.sleep(2000);
+					}
+					else if(isWebElementDisplayed(pages.getPageSettings().getPMISpecialityDeselectAllCheckbox()))
+					{
+						webElementClick(pages.getPageSettings().getSelectAllSpecialityPMI());
+						//assertTrue(isWebElementDisplayed(pages.getPageSettings().getPMISpecialitySelectAllCheckbox()));
+						Thread.sleep(2000);
+						webElementClick(pages.getPageSettings().getSelectAllSpecialityPMI());
+						//assertTrue(isWebElementDisplayed(pages.getPageSettings().getPMISpecialityDeselectAllCheckbox()));
+						Thread.sleep(2000);
+
+						// check and select checkbox1
+						webElementClick(pages.getPageSettings().getSpecialityPMI1());
+						webElementClick(pages.getPageSettings().getSpecialityPMICheckbox1());
+						webElementClick(pages.getPageSettings().getSaveAddPMISpeciality());
+						Thread.sleep(2000);
+						// check and select checkbox2
+						webElementClick(pages.getPageSettings().getSpecialityPMI2());
+						webElementClick(pages.getPageSettings().getSpecialityPMICheckbox2());
+						webElementClick(pages.getPageSettings().getSaveAddPMISpeciality());
+						Thread.sleep(2000);
+						// check and select checkbox3
+						webElementClick(pages.getPageSettings().getSpecialityPMI3());
+						webElementClick(pages.getPageSettings().getSpecialityPMICheckbox3());
+						webElementClick(pages.getPageSettings().getSaveAddPMISpeciality());
+						Thread.sleep(2000);
+
+					}
+				}
+				catch (Exception exception) {
+					throw new Exception("Unable to enable speciality for PMI." + "\n" + exception.getMessage());
+				}
+			}
+		//End: DHP - 110
+		
+		//Start: DHP - 57
+		@Then("^enabled speciality treatment was displayed for patient$")
+		public void enabled_speciality_treatment_was_displayed_for_patient() throws Throwable {
+			try {
+
+				assertTrue(isWebElementDisplayed(pages.getPageSettings().getSpecialityTreatmentCheckbox1()));
+				assertTrue(isWebElementDisplayed(pages.getPageSettings().getSpecialityTreatmentCheckbox2()));
+				assertTrue(isWebElementDisplayed(pages.getPageSettings().getSpecialityTreatmentCheckbox3()));
+				
+			}
+			catch (Exception exception) {
+				throw new Exception("Enabled Treatment Speciality was not displayed" + "\n" + exception.getMessage());
+			}
+		}
+		//End: DHP - 57
+		
+		//Start : DHP - 51
+		@Then("^assessment settings was disabled$")
+		public void assessment_settings_was_disabled() throws Throwable {
+			try {
+				scrollToWebElement(pages.getPageSettings().getButtonSave());
+				isXPathNotExisting("//input[contains(@id,'Chk_Assessment') and @checked='checked']");
+				
+			}
+			catch (Exception exception) {
+				throw new Exception("Unable to toggle off assessment option" + "\n" + exception.getMessage());
+			}
+		}
+		//End : DHP - 51
+		
+		//Start: DHP - 99
+		@Then("^enabled speciality appointment was displayed for patient$")
+		public void enabled_speciality_appointment_was_displayed_for_patient() throws Throwable {
+			try {
+
+				assertTrue(isWebElementDisplayed(pages.getPageSettings().getSpecialityAppointmentCheckbox1()));
+				assertTrue(isWebElementDisplayed(pages.getPageSettings().getSpecialityAppointmentCheckbox2()));
+				assertTrue(isWebElementDisplayed(pages.getPageSettings().getSpecialityAppointmentCheckbox3()));
+				
+			}
+			catch (Exception exception) {
+				throw new Exception("Enabled Appointment Speciality was not displayed" + "\n" + exception.getMessage());
+			}
+		}
+		//End: DHP - 99
+		
+		//Start: DHP - 104
+		@Then("^enabled speciality clinician was displayed for clinician manager$")
+		public void enabled_speciality_clinician_was_displayed_for_clinician_manager() throws Throwable {
+			try {
+
+				assertTrue(isWebElementDisplayed(pages.getPageSettings().getSpecialityClinicianCheckbox1()));
+				assertTrue(isWebElementDisplayed(pages.getPageSettings().getSpecialityClinicianCheckbox2()));
+				assertTrue(isWebElementDisplayed(pages.getPageSettings().getSpecialityClinicianCheckbox3()));
+				
+			}
+			catch (Exception exception) {
+				throw new Exception("Enabled Clinician Speciality was not displayed" + "\n" + exception.getMessage());
+			}
+		}
+		//End: DHP - 104
+		
+		//Start: DHP - 110
+		@Then("^enabled speciality - patient medical info was displayed for patient$")
+		public void enabled_speciality_patient_medical_info_was_displayed_for_patient() throws Throwable {
+			try {
+
+				assertTrue(isWebElementDisplayed(pages.getPageSettings().getSpecialityPMICheckbox1()));
+				assertTrue(isWebElementDisplayed(pages.getPageSettings().getSpecialityPMICheckbox2()));
+				assertTrue(isWebElementDisplayed(pages.getPageSettings().getSpecialityPMICheckbox3()));
+				
+			}
+			catch (Exception exception) {
+				throw new Exception("Enabled PMI Speciality was not displayed" + "\n" + exception.getMessage());
+			}
+		}
+
+		//End: DHP - 110
 
 	// ################################################## Then Steps
 	// ###################################################
@@ -975,17 +1223,125 @@ public class Steps_Settings extends Base {
 			throw new Exception("Unable to locate clinic visit option" + "\n" + exception.getMessage());
 		}
 	}
-
-	@Then("^assessment settings was disabled$")
-	public void assessment_settings_was_disabled() throws Throwable {
-		try {
-			scrollToWebElement(pages.getPageSettings().getButtonSave());
-			isXPathNotExisting("//input[contains(@id,'Chk_Assessment') and @checked='checked']");
-
-		} catch (Exception exception) {
-			throw new Exception("Unable to toggle off assessment option" + "\n" + exception.getMessage());
+	//Start: DHP - 119
+		@When("^user enable appointment settings$")
+		public void user_enable_appointment_settings() throws Throwable {
+			try {
+//				scrollToWebElement(pages.getPageSettings().getLabelHealthIndicator());
+				scrollToBottom();
+				if (isWebElementDisplayed(pages.getPageSettings().getVCToggleOFF())) {
+					webElementClick(pages.getPageSettings().getVCToggle());
+					
+				}
+				if (isWebElementDisplayed(pages.getPageSettings().getCVToggleOFF())) {
+					webElementClick(pages.getPageSettings().getCVToggle());
+					
+				}
+				webElementClick(pages.getPageSettings().getButtonSave());
+				
+			}
+			catch (Exception exception) {
+				throw new Exception("Unable to enable appointments toggle." + "\n" + exception.getMessage());
+			}
 		}
-	}
+		//End: DHP - 119
+		@When("^user disable assessment in the general settings page$")
+		public void user_disable_assessment_in_the_general_settings_page() throws Throwable {
+			try {
+				scrollToWebElement(pages.getPageSettings().getButtonSave());
+				if (isXPathNotExisting("//input[contains(@id,'Chk_Assessment') and @checked='checked']")) {
+					scrollToWebElement(pages.getPageSettings().getButtonSave());
+					Thread.sleep(5000);
+					webElementClick(pages.getPageSettings().getButtonSave());
+					Thread.sleep(5000);
+				}
+				else {
+					webElementClick(pages.getPageSettings().getToggleAssessment());
+					Thread.sleep(5000);
+					scrollToWebElement(pages.getPageSettings().getButtonSave());
+					Thread.sleep(5000);
+					webElementClick(pages.getPageSettings().getButtonSave());
+					Thread.sleep(5000);
+				}
+			}
+			catch (Exception exception) {
+				throw new Exception("Unable to toggle off assessment option" + "\n" + exception.getMessage());
+			}
+		}
+		//End: DHP - 51
+		@When("^user enable default speciality treatment for patient$")
+		public void user_enable_default_speciality_treatment_for_patient() throws Throwable {
+			try {
+				scrollToWebElement(pages.getPageSettings().getAddAppointmentSpeciality());
+				if (isWebElementDisplayed(pages.getPageSettings().getTreatmentSpecialitySelectAllCheckbox())) {
+
+					scrollToWebElement(pages.getPageSettings().getAddAppointmentSpeciality());
+
+					// click select all checkbox
+					webElementClick(pages.getPageSettings().getSelectAllSpecialityTreatment());
+					assertTrue(isWebElementDisplayed(pages.getPageSettings().getTreatmentSpecialityDeselectAllCheckbox()));
+					Thread.sleep(2000);
+					// check and select checkbox1
+					webElementClick(pages.getPageSettings().getSpecialityTreatment1());
+					webElementClick(pages.getPageSettings().getSpecialityTreatmentCheckbox1());
+					webElementClick(pages.getPageSettings().getSaveAddTreatmentSpeciality());
+					Thread.sleep(2000);
+					// check and select checkbox2
+					webElementClick(pages.getPageSettings().getSpecialityTreatment2());
+					webElementClick(pages.getPageSettings().getSpecialityTreatmentCheckbox2());
+					webElementClick(pages.getPageSettings().getSaveAddTreatmentSpeciality());
+					Thread.sleep(2000);
+					// check and select checkbox3
+					webElementClick(pages.getPageSettings().getSpecialityTreatment3());
+					webElementClick(pages.getPageSettings().getSpecialityTreatmentCheckbox3());
+					webElementClick(pages.getPageSettings().getSaveAddTreatmentSpeciality());
+				}
+				else if(isWebElementDisplayed(pages.getPageSettings().getTreatmentSpecialityDeselectAllCheckbox()))
+				{
+					webElementClick(pages.getPageSettings().getSelectAllSpecialityTreatment());
+					//assertTrue(isWebElementDisplayed(pages.getPageSettings().getTreatmentSpecialitySelectAllCheckbox()));
+					Thread.sleep(2000);
+					webElementClick(pages.getPageSettings().getSelectAllSpecialityTreatment());
+					//assertTrue(isWebElementDisplayed(pages.getPageSettings().getTreatmentSpecialityDeselectAllCheckbox()));
+					Thread.sleep(2000);
+
+					// check and select checkbox1
+					webElementClick(pages.getPageSettings().getSpecialityTreatment1());
+					webElementClick(pages.getPageSettings().getSpecialityTreatmentCheckbox1());
+					webElementClick(pages.getPageSettings().getSaveAddTreatmentSpeciality());
+					Thread.sleep(2000);
+					// check and select checkbox2
+					webElementClick(pages.getPageSettings().getSpecialityTreatment2());
+					webElementClick(pages.getPageSettings().getSpecialityTreatmentCheckbox2());
+					webElementClick(pages.getPageSettings().getSaveAddTreatmentSpeciality());
+					Thread.sleep(2000);
+					// check and select checkbox3
+					webElementClick(pages.getPageSettings().getSpecialityTreatment3());
+					webElementClick(pages.getPageSettings().getSpecialityTreatmentCheckbox3());
+					webElementClick(pages.getPageSettings().getSaveAddTreatmentSpeciality());
+
+				}
+			}
+			catch (Exception exception) {
+				throw new Exception("Unable to enable speciality for treatment." + "\n" + exception.getMessage());
+			}
+		}
+		//End: DHP - 57
+		
+		//Start: DHP - 119
+		@Then("^appointment toggle was enabled$")
+		public void appointment_toggle_was_enabled() throws Throwable {
+			try {
+				scrollToBottom();
+				assertTrue(isWebElementDisplayed(pages.getPageSettings().getVCToggleON()));
+				assertTrue(isWebElementDisplayed(pages.getPageSettings().getCVToggleON()));
+				
+			}
+			catch (Exception exception) {
+				throw new Exception("Appointment toggle was not enabled." + "\n" + exception.getMessage());
+			}
+		}
+		//End: DHP - 119
 
 
 
@@ -1034,6 +1390,7 @@ public class Steps_Settings extends Base {
 		assertTrue(isWebElementDisplayed(pages.getPageSettings().getDefaultLanguageDropdown()));
 
 	}
+
 
 @Then("^default language label and dropdown is hidden$")
 public void default_language_label_and_dropdown_is_hidden() throws Throwable {

@@ -404,7 +404,82 @@ public class Steps_MyInfo extends Base {
 			throw new AssertionError("Assessment question is not equal to 3." + "\n" + exception.getMessage());
 		}
 	}
-
+	//Start: DHP - 57
+		@Then("^default treatment speciality is displayed in the treatment type dropdown$")
+		public void default_treatment_speciality_is_displayed_in_the_treatment_type_dropdown() throws Throwable {
+			try {
+				
+				assertTrue(isWebElementDisplayed(pages.getPageMyInfo().getTreatmentOption1()));
+				assertTrue(isWebElementDisplayed(pages.getPageMyInfo().getTreatmentOption2()));
+				assertTrue(isWebElementDisplayed(pages.getPageMyInfo().getTreatmentOption3()));
+				
+				
+			}
+			catch (AssertionError exception) {
+				throw new AssertionError("Treatment type option is not displayed." + "\n" + exception.getMessage());
+			}
+		
+		}
+		//End: DHP - 57
+		
+		//Start: DHP - 100
+		@Then("^disabled treatment speciality is not displayed in the treatment type dropdown$")
+		public void disabled_treatment_speciality_is_not_displayed_in_the_treatment_type_dropdown() throws Throwable {
+			try {
+				
+				assertTrue(!isWebElementDisplayed(pages.getPageMyInfo().getTreatmentOption4()));
+				assertTrue(!isWebElementDisplayed(pages.getPageMyInfo().getTreatmentOption5()));
+				assertTrue(!isWebElementDisplayed(pages.getPageMyInfo().getTreatmentOption6()));
+				
+				
+			}
+			catch (AssertionError exception) {
+				throw new AssertionError("Disbaled treatment type option was displayed." + "\n" + exception.getMessage());
+			}
+		
+		}
+		//End: DHP - 100
+		//Start: DHP - 99
+		@Then("^default appointment speciality is displayed in the appointment type dropdown$")
+		public void default_appointment_speciality_is_displayed_in_the_appointment_type_dropdown() throws Throwable {
+			try {
+				
+				assertTrue(isWebElementDisplayed(pages.getPageMyInfo().getAppointmentOption1()));
+				assertTrue(isWebElementDisplayed(pages.getPageMyInfo().getAppointmentOption2()));
+				assertTrue(isWebElementDisplayed(pages.getPageMyInfo().getAppointmentOption3()));
+			}
+			catch (AssertionError exception) {
+				throw new AssertionError("Appointment type option is not displayed." + "\n" + exception.getMessage());
+			}
+		}
+		//End: DHP - 99
+		//Start: DHP - 110
+		@Then("^enabled PMI speciality was displayed in the speciality dropdown$")
+		public void enabled_PMI_speciality_was_displayed_in_the_speciality_dropdown() throws Throwable {
+			try {
+				
+				assertTrue(isWebElementDisplayed(pages.getPageMyInfo().getPMIOption1()));
+				assertTrue(isWebElementDisplayed(pages.getPageMyInfo().getPMIOption2()));
+				assertTrue(isWebElementDisplayed(pages.getPageMyInfo().getPMIOption3()));
+			}
+			catch (AssertionError exception) {
+				throw new AssertionError("PMI speciality option is not displayed." + "\n" + exception.getMessage());
+			}
+		}
+		
+		@Then("^disabled PMI speciality is not displayed in the speciality dropdown$")
+		public void disabled_PMI_speciality_is_not_displayed_in_the_speciality_dropdown() throws Throwable {
+			try {
+				
+				assertTrue(!isWebElementDisplayed(pages.getPageMyInfo().getPMIOption4()));
+				assertTrue(!isWebElementDisplayed(pages.getPageMyInfo().getPMIOption5()));
+				
+			}
+			catch (AssertionError exception) {
+				throw new AssertionError("PMI speciality option is displayed." + "\n" + exception.getMessage());
+			}
+		}
+		//End: DHP - 110
 	@Then("^inside the Assessment Results box, they don't see assessment results for anxiety and physical activity$")
 	public void inside_the_Assessment_Results_box_they_don_t_see_assessment_results_for_anxiety_and_physical_activity()
 			throws Throwable {

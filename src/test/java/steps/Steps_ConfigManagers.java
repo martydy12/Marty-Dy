@@ -110,7 +110,7 @@ public class Steps_ConfigManagers extends Base {
 			throw new Exception("Unable to locate create admin button." + "\n" + exception.getMessage());
 		}
 	}
-
+	
 	@When("^user clicks cancel button inside the admin creation page$")
 	public void user_clicks_cancel_button_inside_the_admin_creation_page() throws Throwable {
 		try {
@@ -188,6 +188,8 @@ public class Steps_ConfigManagers extends Base {
 			throw new AssertionError("Unable to create administrator." + "\n" + exception.getMessage());
 		}
 	}
+	
+	
 
 	@When("^user clicks on cancel admin button inside the admin creation page$")
 	public void user_clicks_on_cancel_admin_button_inside_the_admin_creation_page() throws Throwable {
@@ -277,20 +279,20 @@ public class Steps_ConfigManagers extends Base {
 			throw new AssertionError("Unable to locate cancel button." + "\n" + exception.getMessage());
 		}
 	}
-
-	@When("^user navigate to Speciality List page$")
-	public void user_nvaigate_to_Speciality_List_page() throws Throwable {
-		try {
-			webElementClick(pages.pageConfigManagers().getMenubarSettings());
-			Thread.sleep(5000);
-			webElementClick(pages.pageConfigManagers().getSpecialityListHorizontalMenu());
-
-		}
-		catch (Exception exception) {
-			throw new Exception("Wrong page redirection" + "\n" + exception.getMessage());
-		}
-	}
-
+	//Start: DHP - 57
+			@When("^user navigate to Speciality List page$")
+			public void user_nvaigate_to_Speciality_List_page() throws Throwable {
+				try {
+					webElementClick(pages.pageConfigManagers().getMenubarSettings());
+					Thread.sleep(5000);
+					webElementClick(pages.pageConfigManagers().getSpecialityListHorizontalMenu());
+					
+				} catch (Exception exception) {
+					throw new Exception("Wrong page redirection" + "\n" + exception.getMessage());
+				}
+			}
+			//End: DHP - 57
+			
 	@When("^user add speciality item for clinician$")
 	public void user_add_speciality_item_for_clinician() throws Throwable {
 		String speciality = "Plantologist";
@@ -319,6 +321,12 @@ public class Steps_ConfigManagers extends Base {
 			throw new Exception("No clinician speciality was added" + "\n" + exception.getMessage());
 		}
 	}
+	
+
+		
+	
+	
+		
 
 	@When("^user edits an speciality for clinician$")
 	public void user_edits_an_speciality_for_clinician() throws Throwable {

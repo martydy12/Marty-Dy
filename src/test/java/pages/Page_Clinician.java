@@ -130,6 +130,9 @@ public class Page_Clinician extends Base {
 	private WebElement label_NoRecordsFound;
 	@FindBy(xpath = "//div[contains(text(),'to') and contains(text(),'of') and contains(text(),'records') and @class='Counter_Message']")
 	private WebElement label_RecordsFound;
+	//Start: DHP - 104
+	
+	
 	
 	public WebElement getNoRecordFoundMessage() {
 		return label_NoRecordsFound;
@@ -167,6 +170,47 @@ public class Page_Clinician extends Base {
 	public WebElement getEnterPSALevelButton() {
 		return button_EnterPSALevel;
 	}
+	//Start: DHP - 104
+		@FindBy(xpath = "//select[contains(@id,'Clinician_ClinicianSpeciality')]")
+		private WebElement dropdown_ClinicianSpeciality;
+		@FindBy(xpath = "//option[contains(text(),'General Practitioner (GP)')]")
+		private WebElement option_GP;
+		@FindBy(xpath = "//option[contains(text(),'Exercise Physiologist')]")
+		private WebElement option_EP;
+		@FindBy(xpath = "//option[contains(text(),'Pathologist')]")
+		private WebElement option_Pathologist;
+		@FindBy(xpath = "//div[contains(@id,'SpecialityClinician')]//input[@value='Plantologist']")
+		private WebElement option_Plantologist;
+		@FindBy(xpath = "//div[contains(@id,'SpecialityClinician')]//input[@value='Podiatrist']")
+		private WebElement option_Podiatrist;
+		@FindBy(xpath = "//div[contains(@id,'SpecialityClinician')]//input[@value='Zoologist']")
+		private WebElement option_Zoologist;
+		//End: DHP - 104
+
+		
+		//Start: DHP - 104
+		public WebElement getClinicianSpecialityDropdown() {
+			return dropdown_ClinicianSpeciality;
+		}	
+		public WebElement getOptionGP() {
+			return option_GP;
+		}
+		public WebElement getOptionEP() {
+			return option_EP;
+		}
+		public WebElement getPathologist() {
+			return option_Pathologist;
+		}
+		public WebElement getPlantologist() {
+			return option_Plantologist;
+		}
+		public WebElement getPodiatrist() {
+			return option_Podiatrist;
+		}
+		public WebElement getZoologist() {
+			return option_Zoologist;
+		}
+		//End: DHP - 104
 
 	// ############################################## Return Page Objects
 	// ###############################################
